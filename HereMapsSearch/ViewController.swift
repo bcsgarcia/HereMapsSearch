@@ -13,7 +13,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: NMAMapView!
     @IBOutlet weak var viewSearch: UIView!
-    @IBOutlet weak var viewSearchResult: UIView!
+   
+    var resultSearchIsShown = false
     
     var mapCircle : NMAMapCircle? = nil
     
@@ -26,19 +27,39 @@ class ViewController: UIViewController {
         viewSearch.layer.shadowPath = UIBezierPath(rect: viewSearch.bounds).cgPath
         viewSearch.layer.shadowRadius = 5
         viewSearch.layer.shadowOffset = .zero
-        viewSearch.layer.shadowOpacity = 0.5
+        viewSearch.layer.shadowOpacity = 0.2
+        viewSearch.layer.borderWidth = 0.5
+        viewSearch.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         
-        viewSearchResult.layer.cornerRadius = 10
-        viewSearchResult.layer.shadowPath = UIBezierPath(rect: viewSearchResult.bounds).cgPath
-        viewSearchResult.layer.shadowRadius = 5
-        viewSearchResult.layer.shadowOffset = .zero
-        viewSearchResult.layer.shadowOpacity = 0.5
+        
+        
+       
+        /*
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        */
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //viewSearchResult.animHide()
     }
+   
+    /*
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+     */
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,11 +83,33 @@ class ViewController: UIViewController {
     
     @IBAction func showHideClick(_ sender: Any) {
         
-        if viewSearchResult.isHidden {
-            viewSearchResult.animShow()
+        
+        if resultSearchIsShown {
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear],
+                           animations: {
+                            //self.center.y += self.bounds.height
+                            self.viewSearch.frame = CGRect(x: self.viewSearch.frame.origin.x, y: self.viewSearch.frame.origin.y , width: self.viewSearch.frame.width, height: self.viewSearch.frame.height - 300)
+                            
+                            self.viewSearch.layoutIfNeeded()
+                            
+            },  completion: {(_ completed: Bool) -> Void in
+                
+                self.resultSearchIsShown = false
+            })
         } else {
-            viewSearchResult.animHide()
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear],
+                           animations: {
+                            //self.center.y += self.bounds.height
+                            self.viewSearch.frame = CGRect(x: self.viewSearch.frame.origin.x, y: self.viewSearch.frame.origin.y , width: self.viewSearch.frame.width, height: self.viewSearch.frame.height + 300)
+                            //self.viewSearch.layer.shadowPath = UIBezierPath(rect: self.viewSearch.bounds).cgPath
+                            self.viewSearch.layoutIfNeeded()
+                            
+            },  completion: {(_ completed: Bool) -> Void in
+
+                self.resultSearchIsShown = true
+            })
         }
+        
         
     }
     

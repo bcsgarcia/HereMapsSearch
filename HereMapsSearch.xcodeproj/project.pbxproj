@@ -18,6 +18,7 @@
 		5FF9CD8C23159F4600878DB3 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD8B23159F4600878DB3 /* UIView+Animation.swift */; };
 		5FF9CD8F2315A63400878DB3 /* Sugestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD8E2315A63400878DB3 /* Sugestion.swift */; };
 		5FF9CD912315A6E500878DB3 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD902315A6E500878DB3 /* Address.swift */; };
+		5FF9CD942315B63200878DB3 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD932315B63200878DB3 /* CheckInternet.swift */; };
 		9B02BF6D5BDC676951434D4E /* Pods_HereMapsSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C75A04CF02F2F59F46D2DC /* Pods_HereMapsSearchTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		5FF9CD8B23159F4600878DB3 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		5FF9CD8E2315A63400878DB3 /* Sugestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sugestion.swift; sourceTree = "<group>"; };
 		5FF9CD902315A6E500878DB3 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		5FF9CD932315B63200878DB3 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		8F047AC459225C1BDF420CB5 /* Pods-HereMapsSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearch.debug.xcconfig"; path = "Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		97C75A04CF02F2F59F46D2DC /* Pods_HereMapsSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HereMapsSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0287FE9D1C7F07662A72180 /* Pods-HereMapsSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearchTests.debug.xcconfig"; path = "Target Support Files/Pods-HereMapsSearchTests/Pods-HereMapsSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		5FF9CD6623158DE000878DB3 /* HereMapsSearch */ = {
 			isa = PBXGroup;
 			children = (
+				5FF9CD922315B61A00878DB3 /* Services */,
 				5FF9CD8D2315A62400878DB3 /* Models */,
 				5FF9CD8A23159F2E00878DB3 /* Extensions */,
 				5FF9CD6723158DE000878DB3 /* AppDelegate.swift */,
@@ -145,6 +148,14 @@
 				5FF9CD902315A6E500878DB3 /* Address.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5FF9CD922315B61A00878DB3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5FF9CD932315B63200878DB3 /* CheckInternet.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		8399F86281EB448D6D420424 /* Frameworks */ = {
@@ -331,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF9CD942315B63200878DB3 /* CheckInternet.swift in Sources */,
 				5FF9CD912315A6E500878DB3 /* Address.swift in Sources */,
 				5FF9CD6A23158DE000878DB3 /* ViewController.swift in Sources */,
 				5FF9CD8C23159F4600878DB3 /* UIView+Animation.swift in Sources */,
@@ -500,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CUQ3DJ6765;
 				INFOPLIST_FILE = HereMapsSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -518,6 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CUQ3DJ6765;
 				INFOPLIST_FILE = HereMapsSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
