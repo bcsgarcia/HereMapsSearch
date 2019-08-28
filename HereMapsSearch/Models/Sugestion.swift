@@ -1,5 +1,5 @@
 //
-//  Sugestion.swift
+//  Suggestion.swift
 //  HereMapsSearch
 //
 //  Created by Garcia, Bruno (B.C.) on 27/08/19.
@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Sugestion: Codable {
+class Suggestion: Codable {
     /*
      "label": "Brasil, Diadema, Casa Grande, Rua Rio de Janeiro",
      "language": "pt",
@@ -27,12 +27,16 @@ class Sugestion: Codable {
      "matchLevel": "street"
     */
     
-    var label: String = ""
-    var language: String = ""
-    var countryCode: String = ""
-    var locationId: String = ""
-    var distance: Int = 0
-    var matchLevel: String = ""
+    var label: String? = ""
+    var language: String? = ""
+    var countryCode: String? = ""
+    var locationId: String? = ""
+    var distance: Int? = 0
+    var matchLevel: String? = ""
     var address = Address()
     
+}
+
+class SuggestionsResponse: Codable {
+    var suggestions: [Suggestion]? = []
 }

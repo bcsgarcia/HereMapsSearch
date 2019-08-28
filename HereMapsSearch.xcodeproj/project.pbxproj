@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,13 @@
 		5FF9CD8F2315A63400878DB3 /* Sugestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD8E2315A63400878DB3 /* Sugestion.swift */; };
 		5FF9CD912315A6E500878DB3 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD902315A6E500878DB3 /* Address.swift */; };
 		5FF9CD942315B63200878DB3 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD932315B63200878DB3 /* CheckInternet.swift */; };
+		92A5131C2315E4330056F62C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5131B2315E4330056F62C /* Enums.swift */; };
+		92A5131F2315E5650056F62C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5131E2315E5650056F62C /* Config.swift */; };
+		92A513212315E81C0056F62C /* SugestionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A513202315E81C0056F62C /* SugestionsService.swift */; };
+		92A513262316193C0056F62C /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A513252316193C0056F62C /* LocationsTableViewController.swift */; };
+		92A51329231619860056F62C /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A51328231619860056F62C /* LocationTableViewCell.swift */; };
+		92A5132C23161C4B0056F62C /* SugestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */; };
+		92A5132E2316285B0056F62C /* SugestionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */; };
 		9B02BF6D5BDC676951434D4E /* Pods_HereMapsSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C75A04CF02F2F59F46D2DC /* Pods_HereMapsSearchTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +58,13 @@
 		5FF9CD902315A6E500878DB3 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		5FF9CD932315B63200878DB3 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		8F047AC459225C1BDF420CB5 /* Pods-HereMapsSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearch.debug.xcconfig"; path = "Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		92A5131B2315E4330056F62C /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		92A5131E2315E5650056F62C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		92A513202315E81C0056F62C /* SugestionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionsService.swift; sourceTree = "<group>"; };
+		92A513252316193C0056F62C /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
+		92A51328231619860056F62C /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionsViewModel.swift; sourceTree = "<group>"; };
+		92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionCellViewModel.swift; sourceTree = "<group>"; };
 		97C75A04CF02F2F59F46D2DC /* Pods_HereMapsSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HereMapsSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0287FE9D1C7F07662A72180 /* Pods-HereMapsSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearchTests.debug.xcconfig"; path = "Target Support Files/Pods-HereMapsSearchTests/Pods-HereMapsSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DDF5C01BDBBC0E6D1721BCC4 /* Pods-HereMapsSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearch.release.xcconfig"; path = "Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,14 +124,15 @@
 		5FF9CD6623158DE000878DB3 /* HereMapsSearch */ = {
 			isa = PBXGroup;
 			children = (
+				92A5132A23161A130056F62C /* ViewModels */,
+				92A51322231615D80056F62C /* Views */,
+				92A5131D2315E54F0056F62C /* Util */,
 				5FF9CD922315B61A00878DB3 /* Services */,
 				5FF9CD8D2315A62400878DB3 /* Models */,
 				5FF9CD8A23159F2E00878DB3 /* Extensions */,
 				5FF9CD6723158DE000878DB3 /* AppDelegate.swift */,
 				5FF9CD6923158DE000878DB3 /* ViewController.swift */,
-				5FF9CD6B23158DE000878DB3 /* Main.storyboard */,
 				5FF9CD7123158DE200878DB3 /* Assets.xcassets */,
-				5FF9CD7323158DE200878DB3 /* LaunchScreen.storyboard */,
 				5FF9CD7623158DE200878DB3 /* Info.plist */,
 				5FF9CD6E23158DE000878DB3 /* HereMapsSearch.xcdatamodeld */,
 			);
@@ -146,6 +161,7 @@
 			children = (
 				5FF9CD8E2315A63400878DB3 /* Sugestion.swift */,
 				5FF9CD902315A6E500878DB3 /* Address.swift */,
+				92A5131B2315E4330056F62C /* Enums.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF9CD932315B63200878DB3 /* CheckInternet.swift */,
+				92A513202315E81C0056F62C /* SugestionsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -165,6 +182,58 @@
 				97C75A04CF02F2F59F46D2DC /* Pods_HereMapsSearchTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		92A5131D2315E54F0056F62C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				92A5131E2315E5650056F62C /* Config.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		92A51322231615D80056F62C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				92A51327231619680056F62C /* Cells */,
+				92A51324231619030056F62C /* Controllers */,
+				92A51323231618EC0056F62C /* Storyboards */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		92A51323231618EC0056F62C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5FF9CD6B23158DE000878DB3 /* Main.storyboard */,
+				5FF9CD7323158DE200878DB3 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		92A51324231619030056F62C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				92A513252316193C0056F62C /* LocationsTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		92A51327231619680056F62C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				92A51328231619860056F62C /* LocationTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		92A5132A23161A130056F62C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */,
+				92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,18 +386,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${PODS_ROOT}/HEREMapsStarter/framework/NMAKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMAKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -342,13 +404,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A513262316193C0056F62C /* LocationsTableViewController.swift in Sources */,
 				5FF9CD942315B63200878DB3 /* CheckInternet.swift in Sources */,
 				5FF9CD912315A6E500878DB3 /* Address.swift in Sources */,
+				92A5131F2315E5650056F62C /* Config.swift in Sources */,
 				5FF9CD6A23158DE000878DB3 /* ViewController.swift in Sources */,
 				5FF9CD8C23159F4600878DB3 /* UIView+Animation.swift in Sources */,
+				92A51329231619860056F62C /* LocationTableViewCell.swift in Sources */,
 				5FF9CD8F2315A63400878DB3 /* Sugestion.swift in Sources */,
 				5FF9CD7023158DE000878DB3 /* HereMapsSearch.xcdatamodeld in Sources */,
+				92A5131C2315E4330056F62C /* Enums.swift in Sources */,
 				5FF9CD6823158DE000878DB3 /* AppDelegate.swift in Sources */,
+				92A5132C23161C4B0056F62C /* SugestionsViewModel.swift in Sources */,
+				92A5132E2316285B0056F62C /* SugestionCellViewModel.swift in Sources */,
+				92A513212315E81C0056F62C /* SugestionsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

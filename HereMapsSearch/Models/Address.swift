@@ -20,11 +20,11 @@ class Address: Codable {
      },
     */
     
-    var country: String = ""
-    var state: String = ""
-    var city: String = ""
-    var district: String = ""
-    var street: String = ""
-    var postalCode: String = ""
+    var country: String? = ""
+    var state: String? = ""
+    var city: String? = ""
+    var district: String? = ""
+    var street: String? = ""
+    var postalCode: String? = ""
     
 }

@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-233" y="-33"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Locations Table View Controller-->
         <scene sceneID="yAU-de-xY0">
             <objects>
-                <tableViewController id="1Xx-Yq-p7m" sceneMemberID="viewController">
+                <tableViewController id="1Xx-Yq-p7m" customClass="LocationsTableViewController" customModule="HereMapsSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="o51-wD-bbp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,14 +39,14 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="139" id="9o1-uo-5Wi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" rowHeight="139" id="9o1-uo-5Wi" customClass="LocationTableViewCell" customModule="HereMapsSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="139"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9o1-uo-5Wi" id="gXG-8I-4Wt">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="138.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zD-vX-GWE">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zD-vX-GWE">
                                             <rect key="frame" x="28" y="19" width="374" height="101"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -60,6 +60,9 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="4zD-vX-GWE" secondAttribute="bottom" constant="8" id="sKM-eg-B0X"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="txtLabel" destination="4zD-vX-GWE" id="cRh-LM-Clo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -67,6 +70,9 @@
                             <outlet property="delegate" destination="1Xx-Yq-p7m" id="iu1-1n-aKs"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchBar" destination="Qu2-bN-uXC" id="aIa-vg-Hbi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7HN-uh-ylJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
