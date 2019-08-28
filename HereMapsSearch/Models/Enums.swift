@@ -37,7 +37,7 @@ enum UrlRouter: URLRequestConvertible {
             
             switch self {
             case .getSuggestions(let label, let proxLocation ):
-                relativePath = "?app_id=\(Config.sharedInstance.APP_ID)&app_code=\(Config.sharedInstance.APP_CODE)&query=\(label.replacingOccurrences(of: " ", with: "+"))&prox=\(proxLocation)"
+                relativePath = "?app_id=\(Config.sharedInstance.APP_ID)&app_code=\(Config.sharedInstance.APP_CODE)&query=\(label.replacingOccurrences(of: " ", with: "+"))&prox=\(proxLocation)&maxresults=15"
             }
             
             var url = URL(string: UrlRouter.baseURLString)!

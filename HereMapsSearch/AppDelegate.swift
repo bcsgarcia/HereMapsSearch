@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         NMAApplicationContext.set(appId: "jA8jbj9hRP4mmeiPI6Go", appCode: "lxVP24tjb1N2m71LD3Rutw")
-        
         return true
     }
 

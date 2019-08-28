@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A3DF85392679D2B9C5FEFFE /* Pods_HereMapsSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B428FC7CB8052C31A4EF0E /* Pods_HereMapsSearch.framework */; };
 		5FF9CD6823158DE000878DB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD6723158DE000878DB3 /* AppDelegate.swift */; };
-		5FF9CD6A23158DE000878DB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD6923158DE000878DB3 /* ViewController.swift */; };
+		5FF9CD6A23158DE000878DB3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD6923158DE000878DB3 /* MainViewController.swift */; };
 		5FF9CD6D23158DE000878DB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF9CD6B23158DE000878DB3 /* Main.storyboard */; };
 		5FF9CD7023158DE000878DB3 /* HereMapsSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD6E23158DE000878DB3 /* HereMapsSearch.xcdatamodeld */; };
 		5FF9CD7223158DE200878DB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF9CD7123158DE200878DB3 /* Assets.xcassets */; };
@@ -19,6 +18,7 @@
 		5FF9CD8F2315A63400878DB3 /* Sugestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD8E2315A63400878DB3 /* Sugestion.swift */; };
 		5FF9CD912315A6E500878DB3 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD902315A6E500878DB3 /* Address.swift */; };
 		5FF9CD942315B63200878DB3 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD932315B63200878DB3 /* CheckInternet.swift */; };
+		5FF9CDA02316C77100878DB3 /* UITableView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD9F2316C77100878DB3 /* UITableView+Empty.swift */; };
 		92A5131C2315E4330056F62C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5131B2315E4330056F62C /* Enums.swift */; };
 		92A5131F2315E5650056F62C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5131E2315E5650056F62C /* Config.swift */; };
 		92A513212315E81C0056F62C /* SugestionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A513202315E81C0056F62C /* SugestionsService.swift */; };
@@ -26,7 +26,8 @@
 		92A51329231619860056F62C /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A51328231619860056F62C /* LocationTableViewCell.swift */; };
 		92A5132C23161C4B0056F62C /* SugestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */; };
 		92A5132E2316285B0056F62C /* SugestionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */; };
-		9B02BF6D5BDC676951434D4E /* Pods_HereMapsSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C75A04CF02F2F59F46D2DC /* Pods_HereMapsSearchTests.framework */; };
+		BFFCD443CB1DE49DD454C575 /* Pods_HereMapsSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EE4773BA8415751382466D /* Pods_HereMapsSearchTests.framework */; };
+		D83AAA7EC61C9FADAB1BB848 /* Pods_HereMapsSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE81E707F979864B9F62B0A6 /* Pods_HereMapsSearch.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,11 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		38B428FC7CB8052C31A4EF0E /* Pods_HereMapsSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HereMapsSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		58B5F28856E417C8C695FB14 /* Pods-HereMapsSearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearchTests.release.xcconfig"; path = "Target Support Files/Pods-HereMapsSearchTests/Pods-HereMapsSearchTests.release.xcconfig"; sourceTree = "<group>"; };
+		0D2C686F888E1BB9154E1A3F /* Pods-HereMapsSearchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearchTests.release.xcconfig"; path = "Target Support Files/Pods-HereMapsSearchTests/Pods-HereMapsSearchTests.release.xcconfig"; sourceTree = "<group>"; };
+		30AEAA5C36B00FA41DE77AD7 /* Pods-HereMapsSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearch.debug.xcconfig"; path = "Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		30C79D04C54443B2CE68203D /* Pods-HereMapsSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearch.release.xcconfig"; path = "Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch.release.xcconfig"; sourceTree = "<group>"; };
+		46EE4773BA8415751382466D /* Pods_HereMapsSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HereMapsSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF9CD6423158DE000878DB3 /* HereMapsSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HereMapsSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF9CD6723158DE000878DB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5FF9CD6923158DE000878DB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5FF9CD6923158DE000878DB3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5FF9CD6C23158DE000878DB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FF9CD6F23158DE000878DB3 /* HereMapsSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HereMapsSearch.xcdatamodel; sourceTree = "<group>"; };
 		5FF9CD7123158DE200878DB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +60,7 @@
 		5FF9CD8E2315A63400878DB3 /* Sugestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sugestion.swift; sourceTree = "<group>"; };
 		5FF9CD902315A6E500878DB3 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		5FF9CD932315B63200878DB3 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
-		8F047AC459225C1BDF420CB5 /* Pods-HereMapsSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearch.debug.xcconfig"; path = "Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		5FF9CD9F2316C77100878DB3 /* UITableView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Empty.swift"; sourceTree = "<group>"; };
 		92A5131B2315E4330056F62C /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		92A5131E2315E5650056F62C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		92A513202315E81C0056F62C /* SugestionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionsService.swift; sourceTree = "<group>"; };
@@ -65,9 +68,8 @@
 		92A51328231619860056F62C /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionsViewModel.swift; sourceTree = "<group>"; };
 		92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionCellViewModel.swift; sourceTree = "<group>"; };
-		97C75A04CF02F2F59F46D2DC /* Pods_HereMapsSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HereMapsSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0287FE9D1C7F07662A72180 /* Pods-HereMapsSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearchTests.debug.xcconfig"; path = "Target Support Files/Pods-HereMapsSearchTests/Pods-HereMapsSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
-		DDF5C01BDBBC0E6D1721BCC4 /* Pods-HereMapsSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearch.release.xcconfig"; path = "Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch.release.xcconfig"; sourceTree = "<group>"; };
+		9DB57BDC4158B2C7DD8439A7 /* Pods-HereMapsSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearchTests.debug.xcconfig"; path = "Target Support Files/Pods-HereMapsSearchTests/Pods-HereMapsSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EE81E707F979864B9F62B0A6 /* Pods_HereMapsSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HereMapsSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A3DF85392679D2B9C5FEFFE /* Pods_HereMapsSearch.framework in Frameworks */,
+				D83AAA7EC61C9FADAB1BB848 /* Pods_HereMapsSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B02BF6D5BDC676951434D4E /* Pods_HereMapsSearchTests.framework in Frameworks */,
+				BFFCD443CB1DE49DD454C575 /* Pods_HereMapsSearchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,10 +95,10 @@
 		5CAA761E28289DB6E0B0C1D2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8F047AC459225C1BDF420CB5 /* Pods-HereMapsSearch.debug.xcconfig */,
-				DDF5C01BDBBC0E6D1721BCC4 /* Pods-HereMapsSearch.release.xcconfig */,
-				B0287FE9D1C7F07662A72180 /* Pods-HereMapsSearchTests.debug.xcconfig */,
-				58B5F28856E417C8C695FB14 /* Pods-HereMapsSearchTests.release.xcconfig */,
+				30AEAA5C36B00FA41DE77AD7 /* Pods-HereMapsSearch.debug.xcconfig */,
+				30C79D04C54443B2CE68203D /* Pods-HereMapsSearch.release.xcconfig */,
+				9DB57BDC4158B2C7DD8439A7 /* Pods-HereMapsSearchTests.debug.xcconfig */,
+				0D2C686F888E1BB9154E1A3F /* Pods-HereMapsSearchTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -108,7 +110,7 @@
 				5FF9CD7E23158DE200878DB3 /* HereMapsSearchTests */,
 				5FF9CD6523158DE000878DB3 /* Products */,
 				5CAA761E28289DB6E0B0C1D2 /* Pods */,
-				8399F86281EB448D6D420424 /* Frameworks */,
+				993112AE6639A621A726626C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,7 +133,6 @@
 				5FF9CD8D2315A62400878DB3 /* Models */,
 				5FF9CD8A23159F2E00878DB3 /* Extensions */,
 				5FF9CD6723158DE000878DB3 /* AppDelegate.swift */,
-				5FF9CD6923158DE000878DB3 /* ViewController.swift */,
 				5FF9CD7123158DE200878DB3 /* Assets.xcassets */,
 				5FF9CD7623158DE200878DB3 /* Info.plist */,
 				5FF9CD6E23158DE000878DB3 /* HereMapsSearch.xcdatamodeld */,
@@ -152,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF9CD8B23159F4600878DB3 /* UIView+Animation.swift */,
+				5FF9CD9F2316C77100878DB3 /* UITableView+Empty.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -173,15 +175,6 @@
 				92A513202315E81C0056F62C /* SugestionsService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		8399F86281EB448D6D420424 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				38B428FC7CB8052C31A4EF0E /* Pods_HereMapsSearch.framework */,
-				97C75A04CF02F2F59F46D2DC /* Pods_HereMapsSearchTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		92A5131D2315E54F0056F62C /* Util */ = {
@@ -215,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				92A513252316193C0056F62C /* LocationsTableViewController.swift */,
+				5FF9CD6923158DE000878DB3 /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -236,6 +230,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		993112AE6639A621A726626C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE81E707F979864B9F62B0A6 /* Pods_HereMapsSearch.framework */,
+				46EE4773BA8415751382466D /* Pods_HereMapsSearchTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,11 +246,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FF9CD8423158DE200878DB3 /* Build configuration list for PBXNativeTarget "HereMapsSearch" */;
 			buildPhases = (
-				794F13D4378D6D33EFBC6AE9 /* [CP] Check Pods Manifest.lock */,
+				DF7B0FEE75A83D995E20E7E8 /* [CP] Check Pods Manifest.lock */,
 				5FF9CD6023158DE000878DB3 /* Sources */,
 				5FF9CD6123158DE000878DB3 /* Frameworks */,
 				5FF9CD6223158DE000878DB3 /* Resources */,
-				EF0969F58659A3BED671462E /* [CP] Embed Pods Frameworks */,
+				933848247469E7CEB3B2CA6B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,7 +265,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FF9CD8723158DE200878DB3 /* Build configuration list for PBXNativeTarget "HereMapsSearchTests" */;
 			buildPhases = (
-				E862392FB10D73E3A42B3E1F /* [CP] Check Pods Manifest.lock */,
+				6D2BE3A91E6E3FEA1E34FD8F /* [CP] Check Pods Manifest.lock */,
 				5FF9CD7723158DE200878DB3 /* Sources */,
 				5FF9CD7823158DE200878DB3 /* Frameworks */,
 				5FF9CD7923158DE200878DB3 /* Resources */,
@@ -336,29 +339,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		794F13D4378D6D33EFBC6AE9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HereMapsSearch-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E862392FB10D73E3A42B3E1F /* [CP] Check Pods Manifest.lock */ = {
+		6D2BE3A91E6E3FEA1E34FD8F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -380,21 +361,50 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EF0969F58659A3BED671462E /* [CP] Embed Pods Frameworks */ = {
+		933848247469E7CEB3B2CA6B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${PODS_ROOT}/HEREMapsStarter/framework/NMAKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMAKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF7B0FEE75A83D995E20E7E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HereMapsSearch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -405,10 +415,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A513262316193C0056F62C /* LocationsTableViewController.swift in Sources */,
+				5FF9CDA02316C77100878DB3 /* UITableView+Empty.swift in Sources */,
 				5FF9CD942315B63200878DB3 /* CheckInternet.swift in Sources */,
 				5FF9CD912315A6E500878DB3 /* Address.swift in Sources */,
 				92A5131F2315E5650056F62C /* Config.swift in Sources */,
-				5FF9CD6A23158DE000878DB3 /* ViewController.swift in Sources */,
+				5FF9CD6A23158DE000878DB3 /* MainViewController.swift in Sources */,
 				5FF9CD8C23159F4600878DB3 /* UIView+Animation.swift in Sources */,
 				92A51329231619860056F62C /* LocationTableViewCell.swift in Sources */,
 				5FF9CD8F2315A63400878DB3 /* Sugestion.swift in Sources */,
@@ -577,7 +588,7 @@
 		};
 		5FF9CD8523158DE200878DB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F047AC459225C1BDF420CB5 /* Pods-HereMapsSearch.debug.xcconfig */;
+			baseConfigurationReference = 30AEAA5C36B00FA41DE77AD7 /* Pods-HereMapsSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -596,7 +607,7 @@
 		};
 		5FF9CD8623158DE200878DB3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DDF5C01BDBBC0E6D1721BCC4 /* Pods-HereMapsSearch.release.xcconfig */;
+			baseConfigurationReference = 30C79D04C54443B2CE68203D /* Pods-HereMapsSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -615,7 +626,7 @@
 		};
 		5FF9CD8823158DE200878DB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0287FE9D1C7F07662A72180 /* Pods-HereMapsSearchTests.debug.xcconfig */;
+			baseConfigurationReference = 9DB57BDC4158B2C7DD8439A7 /* Pods-HereMapsSearchTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -636,7 +647,7 @@
 		};
 		5FF9CD8923158DE200878DB3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58B5F28856E417C8C695FB14 /* Pods-HereMapsSearchTests.release.xcconfig */;
+			baseConfigurationReference = 0D2C686F888E1BB9154E1A3F /* Pods-HereMapsSearchTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
