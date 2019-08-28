@@ -19,33 +19,39 @@ enum RequestError {
 }
 
 enum UrlRouter: URLRequestConvertible {
-    static let baseURLString = Config.sharedInstance.AUTO_COMPLETE_GEOCODER_URL
+    
     
     case getSuggestions(String,String)
+    case getLocationDetail(String)
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
             switch self {
             case .getSuggestions:
                 return .get
+            case .getLocationDetail:
+                return .get
             }
         }
         
         let url: URL = {
             // build up and return the URL for each endpoint
-            let relativePath: String?
+            let relativePath: String
+            let baseURLString: String
+            let url: URL
             
             switch self {
             case .getSuggestions(let label, let proxLocation ):
+                baseURLString = Config.sharedInstance.AUTO_COMPLETE_GEOCODER_URL
                 relativePath = "?app_id=\(Config.sharedInstance.APP_ID)&app_code=\(Config.sharedInstance.APP_CODE)&query=\(label.replacingOccurrences(of: " ", with: "+"))&prox=\(proxLocation)&maxresults=15"
+                break
+            case .getLocationDetail(let locationId):
+                baseURLString = Config.sharedInstance.AUTO_COMPLETE_GEOCODER_URL
+                relativePath = "?app_id=\(Config.sharedInstance.APP_ID)&app_code=\(Config.sharedInstance.APP_CODE)&jsonattributes=1&gen=9&locationid=\(locationId)"
+                break
             }
             
-            var url = URL(string: UrlRouter.baseURLString)!
-            if let relativePath = relativePath {
-                url = URL(string: UrlRouter.baseURLString + relativePath)!
-                print(url)
-            }
-            
+            url = URL(string: baseURLString + relativePath)!
             return url
         }()
         

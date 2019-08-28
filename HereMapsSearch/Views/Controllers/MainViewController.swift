@@ -34,11 +34,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
    
     var resultSearchIsShown = false
-    var latitude = 0.0
-    var longitude = 0.0
-    var currentCoordinate = ""
+    //var latitude = 0.0
+    //var longitude = 0.0
+    
+    var currentCoordinate = Position()
     
     var mapCircle : NMAMapCircle? = nil
+    var marker = NMAMapMarker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,20 +56,19 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         
         setUpSearchBar()
         activityIndicator()
-        //attemptFetchData()
-        alterLayout()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        latitude = locValue.latitude
-        longitude = locValue.longitude
-        currentCoordinate = "\(locValue.latitude),\(locValue.longitude),500"
-        
+        currentCoordinate.latitude = locValue.latitude
+        currentCoordinate.longitude = locValue.longitude
+        //currentCoordinate = "\(locValue.latitude),\(locValue.longitude),500"
+        print("AQUIIIIIIIII")
+    
         let currTime = Int64(NSDate().timeIntervalSince1970 * 1000)
         if Int64(currTime - lastPositionUpdate) > MINUTE {
             setMapPosition()
-            addMapCircle()
+            
         }
     }
     
@@ -80,43 +81,37 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         super.viewWillAppear(animated)
         
         setMapPosition()
-        addMapCircle()
+        
         
     }
     
-    func alterLayout() {
-        //tableView.tableHeaderView = UIView()
-        //tableView.estimatedSectionHeaderHeight = 50
-    }
-   
     private func setUpSearchBar() {
         searchBar.delegate = self
         //searchBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         //searchBar.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         //searchBar.barStyle = UIBarStyle.blackTranslucent
-
     }
   
-    
-  
-    
     func setMapPosition() {
         mapView.useHighResolutionMap = true
         mapView.zoomLevel = 13.2
-        mapView.set(geoCenter: NMAGeoCoordinates(latitude: latitude, longitude: longitude), animation: .linear)
+        
+        let coordinates = NMAGeoCoordinates(latitude: currentCoordinate.latitude ?? 0.0, longitude: currentCoordinate.longitude ?? 0.0)
+        mapView.set(geoCenter: coordinates, animation: .linear)
         mapView.copyrightLogoPosition = NMALayoutPosition.bottomCenter
-        
-        let marker = NMAMapMarker(geoCoordinates: NMAGeoCoordinates(latitude: latitude, longitude: longitude))
-        mapView.add(marker)
-        
+        addMapCircle(coordinates)
     }
   
-    func addMapCircle() {
-        if mapCircle == nil {
-            let coordinates: NMAGeoCoordinates = NMAGeoCoordinates(latitude: latitude, longitude: longitude)
-            mapCircle = NMAMapCircle(coordinates: coordinates, radius: 10)
-            mapView.add(mapCircle!)
+    func addMapCircle(_ coordinates: NMAGeoCoordinates) {
+        if mapCircle != nil {
+            mapView.remove(mapCircle!)
         }
+
+        mapCircle = NMAMapCircle(coordinates: coordinates, radius: 90)
+        mapCircle!.fillColor = #colorLiteral(red: 0, green: 0.495313704, blue: 1, alpha: 1)
+        mapCircle!.lineWidth = 2
+        mapCircle!.lineColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        mapView.add(mapCircle!)
     }
     
     private func activityIndicatorStart() {
@@ -140,7 +135,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             checkInternetTimer.invalidate()
             checkInternetTimer = nil
             activityIndicatorStop()
-            //attemptFetchData()
         }
     }
     
@@ -148,8 +142,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         indicator.style = UIActivityIndicatorView.Style.gray
         indicator.center = self.view.center
-        
-        //indicator.hidesWhenStopped = true
         self.view.addSubview(indicator)
     }
     
@@ -186,7 +178,16 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             self.tableView.reloadData()
         }
         
-        viewModel.fetchData(query: query, prox: currentCoordinate)
+        viewModel.fetchData(query: query, prox: currentCoordinate.getProxString())
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == identifier {
+            let viewDestiny = segue.destination as! DetailViewController
+            if let indexPath = sender as? IndexPath {
+                viewDestiny.suggestion = cellViewModels[indexPath.row].suggestion
+            }
+        }
     }
     
     
@@ -195,23 +196,22 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
 extension MainViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        
         if let text = searchBar.text {
             attemptFetchData(query: text)
         } else {
             cellViewModels = [SuggestionCellViewModel]()
         }
-        
         tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         hideKeyboard()
     }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         hideKeyboard()
     }
@@ -244,41 +244,22 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         let cellViewModel = cellViewModels[indexPath.row]
-        //cell.movieCellViewModel = cellViewModel
         cell.txtLabel.text = cellViewModel.suggestion.label
         return cell
     }
-    
-    //func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //    return 130
-    //}
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         hideKeyboard()
         performSegue(withIdentifier: identifier, sender: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //if indexPath.row == viewModel.movieCellViewModels.count-1 {
-        //    self.attemptFetchData()
-        //}
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
-    
-    // This two functions can be used if you want to show the search bar in the section header
-    //func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    //    return searchBar
-    //}
     
     // search bar in section header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
- 
-    
-    
-    
-    
-    
-    
 }
 

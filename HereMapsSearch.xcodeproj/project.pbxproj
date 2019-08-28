@@ -19,6 +19,11 @@
 		5FF9CD912315A6E500878DB3 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD902315A6E500878DB3 /* Address.swift */; };
 		5FF9CD942315B63200878DB3 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD932315B63200878DB3 /* CheckInternet.swift */; };
 		5FF9CDA02316C77100878DB3 /* UITableView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD9F2316C77100878DB3 /* UITableView+Empty.swift */; };
+		5FF9CDA22316DDF200878DB3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CDA12316DDF200878DB3 /* DetailViewController.swift */; };
+		5FF9CDA42316E8BD00878DB3 /* LocationDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CDA32316E8BC00878DB3 /* LocationDetailService.swift */; };
+		5FF9CDA62316F38C00878DB3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CDA52316F38C00878DB3 /* Location.swift */; };
+		5FF9CDA82316F48E00878DB3 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CDA72316F48E00878DB3 /* Position.swift */; };
+		5FF9CDAC2316F93300878DB3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CDAB2316F93300878DB3 /* DetailViewModel.swift */; };
 		92A5131C2315E4330056F62C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5131B2315E4330056F62C /* Enums.swift */; };
 		92A5131F2315E5650056F62C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5131E2315E5650056F62C /* Config.swift */; };
 		92A513212315E81C0056F62C /* SugestionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A513202315E81C0056F62C /* SugestionsService.swift */; };
@@ -61,6 +66,11 @@
 		5FF9CD902315A6E500878DB3 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		5FF9CD932315B63200878DB3 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		5FF9CD9F2316C77100878DB3 /* UITableView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Empty.swift"; sourceTree = "<group>"; };
+		5FF9CDA12316DDF200878DB3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		5FF9CDA32316E8BC00878DB3 /* LocationDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailService.swift; sourceTree = "<group>"; };
+		5FF9CDA52316F38C00878DB3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5FF9CDA72316F48E00878DB3 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		5FF9CDAB2316F93300878DB3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		92A5131B2315E4330056F62C /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		92A5131E2315E5650056F62C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		92A513202315E81C0056F62C /* SugestionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionsService.swift; sourceTree = "<group>"; };
@@ -164,6 +174,8 @@
 				5FF9CD8E2315A63400878DB3 /* Sugestion.swift */,
 				5FF9CD902315A6E500878DB3 /* Address.swift */,
 				92A5131B2315E4330056F62C /* Enums.swift */,
+				5FF9CDA52316F38C00878DB3 /* Location.swift */,
+				5FF9CDA72316F48E00878DB3 /* Position.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,6 +185,7 @@
 			children = (
 				5FF9CD932315B63200878DB3 /* CheckInternet.swift */,
 				92A513202315E81C0056F62C /* SugestionsService.swift */,
+				5FF9CDA32316E8BC00878DB3 /* LocationDetailService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -209,6 +222,7 @@
 			children = (
 				92A513252316193C0056F62C /* LocationsTableViewController.swift */,
 				5FF9CD6923158DE000878DB3 /* MainViewController.swift */,
+				5FF9CDA12316DDF200878DB3 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -226,6 +240,7 @@
 			children = (
 				92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */,
 				92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */,
+				5FF9CDAB2316F93300878DB3 /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -417,10 +432,14 @@
 				92A513262316193C0056F62C /* LocationsTableViewController.swift in Sources */,
 				5FF9CDA02316C77100878DB3 /* UITableView+Empty.swift in Sources */,
 				5FF9CD942315B63200878DB3 /* CheckInternet.swift in Sources */,
+				5FF9CDAC2316F93300878DB3 /* DetailViewModel.swift in Sources */,
 				5FF9CD912315A6E500878DB3 /* Address.swift in Sources */,
+				5FF9CDA62316F38C00878DB3 /* Location.swift in Sources */,
 				92A5131F2315E5650056F62C /* Config.swift in Sources */,
 				5FF9CD6A23158DE000878DB3 /* MainViewController.swift in Sources */,
 				5FF9CD8C23159F4600878DB3 /* UIView+Animation.swift in Sources */,
+				5FF9CDA22316DDF200878DB3 /* DetailViewController.swift in Sources */,
+				5FF9CDA42316E8BD00878DB3 /* LocationDetailService.swift in Sources */,
 				92A51329231619860056F62C /* LocationTableViewCell.swift in Sources */,
 				5FF9CD8F2315A63400878DB3 /* Sugestion.swift in Sources */,
 				5FF9CD7023158DE000878DB3 /* HereMapsSearch.xcdatamodeld in Sources */,
@@ -428,6 +447,7 @@
 				5FF9CD6823158DE000878DB3 /* AppDelegate.swift in Sources */,
 				92A5132C23161C4B0056F62C /* SugestionsViewModel.swift in Sources */,
 				92A5132E2316285B0056F62C /* SugestionCellViewModel.swift in Sources */,
+				5FF9CDA82316F48E00878DB3 /* Position.swift in Sources */,
 				92A513212315E81C0056F62C /* SugestionsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

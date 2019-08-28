@@ -12,8 +12,9 @@ class Config {
     
     static let sharedInstance = Config()
     
-    let APP_ID = "jA8jbj9hRP4mmeiPI6Go"
-    let APP_CODE = "lxVP24tjb1N2m71LD3Rutw"
+    let APP_ID = "oaF2VxsY5r05iFUshalJ"
+    let APP_CODE = "2s6K8A1mASnWqJ6OXVmEEA"
     let AUTO_COMPLETE_GEOCODER_URL = "https://autocomplete.geocoder.api.here.com/6.2/suggest.json"
+    let GEOCODER_DETAIL_URL = "https://geocoder.api.here.com/6.2/geocode.json"
     
 }

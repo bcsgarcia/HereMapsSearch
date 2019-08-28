@@ -27,7 +27,6 @@ class SuggestionsService : SuggestionsServiceProtocol {
                 }
                 
                 do {
-                    print(response)
                     let response = try JSONDecoder().decode(SuggestionsResponse.self, from: data)
                     DispatchQueue.main.async {
                         completion(response, nil)
