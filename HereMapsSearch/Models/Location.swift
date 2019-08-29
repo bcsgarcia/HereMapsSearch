@@ -25,7 +25,11 @@ class ResponseView: Codable {
 }
 
 class ViewResult: Codable {
-    var result: [Location]? = []
+    var result: [ResultLocation]? = []
+}
+
+class ResultLocation: Codable {
+    var location: Location?
 }
     /*
     {

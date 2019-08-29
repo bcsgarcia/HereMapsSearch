@@ -16,7 +16,10 @@ class BaseViewModel {
     var didFinishFetch: (() -> ())?
     
     var error: RequestError? {
-        didSet { self.showAlertClosure?() }
+        didSet {
+            self.isLoading = false
+            self.showAlertClosure?()
+        }
     }
     
     var isLoading: Bool = false {

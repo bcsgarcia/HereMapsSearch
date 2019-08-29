@@ -14,6 +14,7 @@ class SuggestionsViewModel: BaseViewModel {
         didSet {
             guard let rs = suggestionsResponse else { return }
             self.setupProperties(with: rs.suggestions ?? [])
+            self.isLoading = false
             self.didFinishFetch?()
         }
     }
@@ -30,14 +31,12 @@ class SuggestionsViewModel: BaseViewModel {
         isLoading = true
         
         if !CheckInternet.Connection() {
-            isLoading = false
             error = .noInternetConnection
             return
         }
         
         suggestionsService.fetchSuggestions(query: query, prox: prox) { (suggestionsResponse, err) in
             if let err = err {
-                self.isLoading = false
                 self.error = err
                 return
             }
@@ -45,8 +44,7 @@ class SuggestionsViewModel: BaseViewModel {
                 self.isLoading = false
                 return
             }
-            self.error = nil
-            self.isLoading = false
+            
             self.suggestionsResponse = suggestionsResponse
         }
     }

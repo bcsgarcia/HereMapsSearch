@@ -12,8 +12,8 @@ import CoreLocation
 
 class LocationsTableViewController: UITableViewController, CLLocationManagerDelegate {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var searchBar: UISearchBar!
-    
     
     // MARK: - Properties
     var viewModel = SuggestionsViewModel()
@@ -28,6 +28,7 @@ class LocationsTableViewController: UITableViewController, CLLocationManagerDele
     let locationManager = CLLocationManager()
     var currentCoordinate = ""
     
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,8 +44,6 @@ class LocationsTableViewController: UITableViewController, CLLocationManagerDele
         activityIndicator()
         //attemptFetchData()
         alterLayout()
-        
-        
         
     }
     

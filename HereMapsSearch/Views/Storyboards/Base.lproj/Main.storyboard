@@ -26,14 +26,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jBw-XT-wUY">
-                                        <rect key="frame" x="0.0" y="52" width="414" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="XRB-y1-Ux5"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="36" width="414" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EFd-qd-7Ci">
-                                        <rect key="frame" x="21" y="96" width="372" height="800"/>
+                                        <rect key="frame" x="21" y="92" width="372" height="804"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="sectionIndexBackgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
@@ -72,8 +69,8 @@
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="EFd-qd-7Ci" secondAttribute="bottom" id="0sn-Vr-OAX"/>
+                                    <constraint firstItem="jBw-XT-wUY" firstAttribute="top" secondItem="oXt-Xn-y4O" secondAttribute="top" constant="36" id="DEu-QO-cqK"/>
                                     <constraint firstItem="jBw-XT-wUY" firstAttribute="leading" secondItem="oXt-Xn-y4O" secondAttribute="leading" id="Ggl-aC-jiX"/>
-                                    <constraint firstItem="jBw-XT-wUY" firstAttribute="top" secondItem="oXt-Xn-y4O" secondAttribute="top" constant="52" id="OUe-c8-S6b"/>
                                     <constraint firstAttribute="trailing" secondItem="jBw-XT-wUY" secondAttribute="trailing" id="byB-Gf-eVr"/>
                                     <constraint firstItem="EFd-qd-7Ci" firstAttribute="leading" secondItem="oXt-Xn-y4O" secondAttribute="leading" constant="21" id="eLa-kN-QfO"/>
                                     <constraint firstAttribute="trailing" secondItem="EFd-qd-7Ci" secondAttribute="trailing" constant="21" id="hQo-2e-K9n"/>
@@ -117,7 +114,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAq-oj-FVt" customClass="NMAMapView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAq-oj-FVt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                 <color key="backgroundColor" red="0.16156748509999999" green="0.48690000280000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
@@ -197,7 +194,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obl-2V-tT8">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obl-2V-tT8">
                                                 <rect key="frame" x="207" y="166" width="207" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
@@ -293,7 +290,13 @@
                         <viewLayoutGuide key="safeArea" id="bSS-o4-oUk"/>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="CAq-oj-FVt" id="sjh-gW-XB1"/>
+                        <outlet property="lblDistance" destination="i2T-dq-ahK" id="xM2-z9-bOs"/>
+                        <outlet property="lblLatitude" destination="wjG-IH-whS" id="A4D-Ky-8kY"/>
+                        <outlet property="lblLongitude" destination="dYt-NG-aSv" id="Od2-qp-yIK"/>
+                        <outlet property="lblPostalCode" destination="Bqd-Jf-aqc" id="vBY-br-mpF"/>
+                        <outlet property="lblState" destination="w8C-Aq-qhl" id="7lz-tb-dIh"/>
+                        <outlet property="lblStreet" destination="eAN-mE-MgG" id="dqr-Ws-RC7"/>
+                        <outlet property="viewTest" destination="CAq-oj-FVt" id="kPD-v8-3me"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5T-zR-gJK" userLabel="First Responder" sceneMemberID="firstResponder"/>

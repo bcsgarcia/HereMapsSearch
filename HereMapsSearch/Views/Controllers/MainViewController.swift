@@ -9,14 +9,14 @@
 import UIKit
 import NMAKit
 
-class MainViewController: UIViewController, CLLocationManagerDelegate {
+class MainViewController: BaseViewController, CLLocationManagerDelegate {
 
+    // MARK: - IBOutlet
     @IBOutlet weak var mapView: NMAMapView!
-    //@IBOutlet weak var viewSearch: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
+    // MARK: - Properties
     let SECOND = 1000
     let MINUTE = 60 * 1000
     let HOUR = 60 * 60 * 1000
@@ -24,28 +24,19 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     var viewModel = SuggestionsViewModel()
     var cellViewModels = [SuggestionCellViewModel]()
-    var indicator = UIActivityIndicatorView()
-    var checkInternetTimer: Timer!
-    let checkInternetTimeInterval : TimeInterval = 3
     
     let cellId = "locationCell"
     let identifier = "segueDetail"
     
     let locationManager = CLLocationManager()
-   
     var resultSearchIsShown = false
-    //var latitude = 0.0
-    //var longitude = 0.0
-    
     var currentCoordinate = Position()
-    
     var mapCircle : NMAMapCircle? = nil
-    var marker = NMAMapMarker()
     
+    
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -55,41 +46,34 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         setUpSearchBar()
-        activityIndicator()
+        setViewModelClosures()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setMapPosition()
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         currentCoordinate.latitude = locValue.latitude
         currentCoordinate.longitude = locValue.longitude
-        //currentCoordinate = "\(locValue.latitude),\(locValue.longitude),500"
-        print("AQUIIIIIIIII")
     
-        let currTime = Int64(NSDate().timeIntervalSince1970 * 1000)
-        if Int64(currTime - lastPositionUpdate) > MINUTE {
-            setMapPosition()
-            
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        //viewSearchResult.animHide()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         setMapPosition()
+        locationManager.stopUpdatingLocation()
         
-        
+        /*
+        let currTime = Int64(NSDate().timeIntervalSince1970 * 1000)
+        if Int64(currTime - lastPositionUpdate) > MINUTE/2 {
+            //URLCache.shared.removeAllCachedResponses()
+            setMapPosition()
+        }
+         */
     }
     
     private func setUpSearchBar() {
         searchBar.delegate = self
-        //searchBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-        //searchBar.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-        //searchBar.barStyle = UIBarStyle.blackTranslucent
     }
   
     func setMapPosition() {
@@ -114,47 +98,14 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         mapView.add(mapCircle!)
     }
     
-    private func activityIndicatorStart() {
-        indicator.isHidden = false
-        indicator.startAnimating()
-    }
-    
-    private func activityIndicatorStop() {
-        indicator.stopAnimating()
-    }
-    
-    func initInternetConnectionCheck(){
-        if checkInternetTimer == nil {
-            activityIndicatorStart()
-            checkInternetTimer = Timer.scheduledTimer(timeInterval: checkInternetTimeInterval, target: self, selector: #selector(checkInernet), userInfo: nil, repeats: true)
+    func setViewModelClosures() {
+        viewModel.updateLoadingStatus = {
+            if self.viewModel.isLoading {
+                self.activityIndicatorStart()
+            } else {
+                self.activityIndicatorStop()
+            }
         }
-    }
-    
-    @objc func checkInernet(){
-        if CheckInternet.Connection() {
-            checkInternetTimer.invalidate()
-            checkInternetTimer = nil
-            activityIndicatorStop()
-        }
-    }
-    
-    func activityIndicator() {
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        indicator.style = UIActivityIndicatorView.Style.gray
-        indicator.center = self.view.center
-        self.view.addSubview(indicator)
-    }
-    
-    func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func attemptFetchData(query: String) {
-        self.activityIndicatorStart()
-        
-        viewModel.updateLoadingStatus = { let _ = self.viewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop() }
         
         viewModel.showAlertClosure = {
             if let error = self.viewModel.error {
@@ -177,7 +128,10 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
             
             self.tableView.reloadData()
         }
-        
+    }
+    
+    // MARK: - Fetch Data Function
+    func attemptFetchData(query: String) {
         viewModel.fetchData(query: query, prox: currentCoordinate.getProxString())
     }
     
@@ -191,8 +145,12 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
+    
+    
+    
 }
 
+// MARK: - SearchBar Delegate
 extension MainViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -223,6 +181,7 @@ extension MainViewController: UISearchBarDelegate {
     
 }
 
+// MARK: - UITableView: DataSource & Delegate
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Table view data source

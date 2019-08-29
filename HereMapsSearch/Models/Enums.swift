@@ -15,6 +15,7 @@ enum RequestError {
     case noResponse
     case noData
     case noInternetConnection
+    case messageError(message: String)
     case httpError(code: Int)
 }
 
@@ -46,12 +47,16 @@ enum UrlRouter: URLRequestConvertible {
                 relativePath = "?app_id=\(Config.sharedInstance.APP_ID)&app_code=\(Config.sharedInstance.APP_CODE)&query=\(label.replacingOccurrences(of: " ", with: "+"))&prox=\(proxLocation)&maxresults=15"
                 break
             case .getLocationDetail(let locationId):
-                baseURLString = Config.sharedInstance.AUTO_COMPLETE_GEOCODER_URL
+                baseURLString = Config.sharedInstance.GEOCODER_DETAIL_URL
                 relativePath = "?app_id=\(Config.sharedInstance.APP_ID)&app_code=\(Config.sharedInstance.APP_CODE)&jsonattributes=1&gen=9&locationid=\(locationId)"
                 break
             }
             
+            //print(baseURLString + relativePath)
             url = URL(string: baseURLString + relativePath)!
+            
+            
+            
             return url
         }()
         

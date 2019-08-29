@@ -16,6 +16,7 @@ protocol LocationDetailServiceProtocol {
 class LocationDetailService : LocationDetailServiceProtocol {
     
     func fetchLocation(locationId: String, completion: @escaping (Location?, RequestError?) -> ()) {
+        
         Alamofire.request(UrlRouter.getLocationDetail(locationId))
             .responseJSON { (response) in
                 if response.result.value == nil {
@@ -28,11 +29,10 @@ class LocationDetailService : LocationDetailServiceProtocol {
                 }
                 
                 do {
-                    print(response)
-                    let response = try JSONDecoder().decode(LocationResponse.self, from: data)
-                    DispatchQueue.main.async {
-                        
-                        guard let responseView = response.response else {
+                    //print(response)
+                    let locationResponse = try JSONDecoder().decode(LocationResponse.self, from: data)
+                    
+                        guard let responseView = locationResponse.response else {
                             completion(nil, .noData)
                             return
                         }
@@ -57,8 +57,8 @@ class LocationDetailService : LocationDetailServiceProtocol {
                             return
                         }
                         
-                        completion(location[0], nil)
-                    }
+                        completion(location[0].location, nil)
+                    
                 } catch let jsonErr {
                     print("Failed to decode:", jsonErr)
                 }
