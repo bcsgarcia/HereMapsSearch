@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,7 @@
 		92A51329231619860056F62C /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A51328231619860056F62C /* LocationTableViewCell.swift */; };
 		92A5132C23161C4B0056F62C /* SugestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */; };
 		92A5132E2316285B0056F62C /* SugestionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */; };
+		92A5133023174A670056F62C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132F23174A670056F62C /* BaseViewModel.swift */; };
 		BFFCD443CB1DE49DD454C575 /* Pods_HereMapsSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EE4773BA8415751382466D /* Pods_HereMapsSearchTests.framework */; };
 		D83AAA7EC61C9FADAB1BB848 /* Pods_HereMapsSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE81E707F979864B9F62B0A6 /* Pods_HereMapsSearch.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		92A51328231619860056F62C /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionsViewModel.swift; sourceTree = "<group>"; };
 		92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionCellViewModel.swift; sourceTree = "<group>"; };
+		92A5132F23174A670056F62C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		9DB57BDC4158B2C7DD8439A7 /* Pods-HereMapsSearchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HereMapsSearchTests.debug.xcconfig"; path = "Target Support Files/Pods-HereMapsSearchTests/Pods-HereMapsSearchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EE81E707F979864B9F62B0A6 /* Pods_HereMapsSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HereMapsSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -241,6 +243,7 @@
 				92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */,
 				92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */,
 				5FF9CDAB2316F93300878DB3 /* DetailViewModel.swift */,
+				92A5132F23174A670056F62C /* BaseViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -382,18 +385,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${PODS_ROOT}/HEREMapsStarter/framework/NMAKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMAKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -446,6 +442,7 @@
 				92A5131C2315E4330056F62C /* Enums.swift in Sources */,
 				5FF9CD6823158DE000878DB3 /* AppDelegate.swift in Sources */,
 				92A5132C23161C4B0056F62C /* SugestionsViewModel.swift in Sources */,
+				92A5133023174A670056F62C /* BaseViewModel.swift in Sources */,
 				92A5132E2316285B0056F62C /* SugestionCellViewModel.swift in Sources */,
 				5FF9CDA82316F48E00878DB3 /* Position.swift in Sources */,
 				92A513212315E81C0056F62C /* SugestionsService.swift in Sources */,

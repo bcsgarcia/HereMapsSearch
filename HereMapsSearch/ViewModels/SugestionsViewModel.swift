@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SuggestionsViewModel {
+class SuggestionsViewModel: BaseViewModel {
     
     private var suggestionsResponse: SuggestionsResponse? {
         didSet {
@@ -19,21 +19,7 @@ class SuggestionsViewModel {
     }
     
     var suggestionCellViewModels = [SuggestionCellViewModel]()
-    
-    // MARK: - Closures for callback
-    var showAlertClosure: (() -> ())?
-    var updateLoadingStatus: (() -> ())?
-    var didFinishFetch: (() -> ())?
-    
     let suggestionsService: SuggestionsServiceProtocol
-    
-    var error: RequestError? {
-        didSet { self.showAlertClosure?() }
-    }
-    
-    var isLoading: Bool = false {
-        didSet { self.updateLoadingStatus?() }
-    }
     
     //Dependency Injection
     init( suggestionsService: SuggestionsServiceProtocol = SuggestionsService() ) {

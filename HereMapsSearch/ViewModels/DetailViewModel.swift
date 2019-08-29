@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class DetailViewModel: BaseViewModel {
+    
+    private var location: Location? {
+        didSet {
+            
+        }
+    }
+    
+    
+    
+}
