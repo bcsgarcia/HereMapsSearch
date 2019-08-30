@@ -14,6 +14,13 @@ class Position: Codable {
     var longitude: Double? = 0.0
     
     
+    init(){}
+    
+    init(with favorite: Favorite) {
+        self.latitude = favorite.latitude
+        self.longitude = favorite.longitude
+    }
+    
     func getProxString() -> String {
         return "\(self.latitude ?? 0.0),\(self.longitude ?? 0.0),500"
     }

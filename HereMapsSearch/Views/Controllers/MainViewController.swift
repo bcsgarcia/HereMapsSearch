@@ -28,7 +28,8 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     var cellViewModels = [SuggestionCellViewModel]()
     
     let cellId = "locationCell"
-    let identifier = "segueDetail"
+    let detailIdentifier = "segueDetail"
+    let favoriteIdentifier = "segueFavorite"
     
     let locationManager = CLLocationManager()
     var resultSearchIsShown = false
@@ -46,9 +47,7 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        
-       
-        
+
         setUpSearchBar()
         setViewModelClosures()
     }
@@ -135,14 +134,32 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == identifier {
+        
+        if segue.identifier == detailIdentifier {
             let viewDestiny = segue.destination as! DetailViewController
             locationManager.stopUpdatingLocation()
             if let indexPath = sender as? IndexPath {
+                tableView.deselectRow(at: indexPath, animated: false)
                 viewDestiny.suggestion = cellViewModels[indexPath.row].suggestion
             }
+            
+        } else if segue.identifier == favoriteIdentifier {
+            let _ = segue.destination as! FavoritesViewController
+            locationManager.stopUpdatingLocation()
+            
         }
     }
+    
+    @IBAction func showFavorites(_ sender: Any) {
+        
+        //let favoriteVC = FavoritesViewController()
+        //self.present(favoriteVC, animated: true, completion: nil)
+        
+        performSegue(withIdentifier: favoriteIdentifier, sender: nil)
+        
+    }
+    
+    
 }
 
 // MARK: - SearchBar Delegate
@@ -204,7 +221,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         hideKeyboard()
-        performSegue(withIdentifier: identifier, sender: indexPath)
+        performSegue(withIdentifier: detailIdentifier, sender: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

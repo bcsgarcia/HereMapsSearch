@@ -12,11 +12,7 @@ import CoreData
 
 class DetailViewController: BaseViewController, CLLocationManagerDelegate {
 
-    //@IBOutlet weak var mapView: NMAMapView!
-    
-    //@IBOutlet weak var mapView: MapView!
-    @IBOutlet weak var viewTest: UIView!
-    
+    @IBOutlet weak var mapContainer: UIView!
     @IBOutlet weak var lblStreet: UILabel!
     @IBOutlet weak var lblDistrict: UILabel!
     @IBOutlet weak var lblState: UILabel!
@@ -26,17 +22,11 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet weak var lblDistance: UILabel!
     @IBOutlet weak var btnFavorite: UIBarButtonItem!
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var infoContainer: UIView!
-    
-    
-    @IBOutlet weak var imgTeste: UIImageView!
-    
     var isFavorite = false
     var locationImage: UIImage? = nil
     var favorite: Favorite? = nil
     var suggestion = Suggestion()
-    var viewModel = DetailViewModel()
+    let viewModel = DetailViewModel()
     
     let locationManager = CLLocationManager()
     var currentCoordinate = Position()
@@ -44,12 +34,11 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //infoContainer.roundCorners(corners: [.topLeft, .topRight], radius: 20.0)
-        //scrollView.roundCorners(corners: [.topLeft, .topRight], radius: 20.0)
+        btnFavorite.isEnabled = false
         
-        Map.mapView.frame = viewTest.bounds
+        Map.mapView.frame = mapContainer.bounds
         Map.mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        viewTest.addSubview(Map.mapView)
+        mapContainer.addSubview(Map.mapView)
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -123,6 +112,12 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
                 Map.setPosition(for: .destination, with: self.currentCoordinate)
                 
                 self.viewModel.fetchImage(self.currentCoordinate.toString())
+            }
+        }
+        
+        viewModel.didFinishFetchImage = {
+            DispatchQueue.main.async {
+                self.btnFavorite.isEnabled = true
             }
         }
     }
