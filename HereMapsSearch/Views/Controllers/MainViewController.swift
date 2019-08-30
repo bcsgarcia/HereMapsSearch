@@ -12,11 +12,10 @@ import NMAKit
 class MainViewController: BaseViewController, CLLocationManagerDelegate {
 
     // MARK: - IBOutlet
-    //@IBOutlet weak var mapView: NMAMapView!
-    
     @IBOutlet weak var mapContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var viewMenu: UIView!
     
     // MARK: - Properties
     let SECOND = 1000
@@ -32,10 +31,9 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     let favoriteIdentifier = "segueFavorite"
     
     let locationManager = CLLocationManager()
-    var resultSearchIsShown = false
+    var sortMenuIsShow = false
     var currentCoordinate = Position()
     var mapCircle : NMAMapCircle? = nil
-    
     
     // MARK: - Functions
     override func viewDidLoad() {
@@ -54,10 +52,22 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //setMapPosition()
         setupMap()
         Map.setPosition(for: .user, with: currentCoordinate)
         locationManager.startUpdatingLocation()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            
+        } else {
+            print("Portrait")
+            //imageView.image = UIImage(named: const)
+        }
+        self.viewMenu.frame = CGRect(x: 0, y: -128, width: self.viewMenu.frame.width, height: self.viewMenu.frame.height)
+        self.sortMenuIsShow = false
     }
     
     func setupMap() {
@@ -70,24 +80,15 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         currentCoordinate.latitude = locValue.latitude
         currentCoordinate.longitude = locValue.longitude
-    
-        //setMapPosition()
-        //locationManager.stopUpdatingLocation()
-        
-        
         let currTime = Int64(NSDate().timeIntervalSince1970 * 1000)
         if Int64(currTime - lastPositionUpdate) > MINUTE/2 {
-            //URLCache.shared.removeAllCachedResponses()
-            //setMapPosition()
             Map.setPosition(for: .user, with: currentCoordinate)
         }
-        
     }
     
     private func setUpSearchBar() {
         searchBar.delegate = self
     }
-    
     
     func setViewModelClosures() {
         viewModel.updateLoadingStatus = {
@@ -114,17 +115,13 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
         
         viewModel.didFinishFetch = {
             self.cellViewModels = self.viewModel.suggestionCellViewModels
-            
             self.cellViewModels.sort(by: { $0.suggestion.distance ?? 0 < $1.suggestion.distance ?? 0 })
-            
             self.tableView.reloadData()
-            
             if self.cellViewModels.count > 0 {
                 self.tableView.isHidden = false
             } else {
                 self.tableView.isHidden = true
             }
-            
         }
     }
     
@@ -142,24 +139,33 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
                 tableView.deselectRow(at: indexPath, animated: false)
                 viewDestiny.suggestion = cellViewModels[indexPath.row].suggestion
             }
-            
         } else if segue.identifier == favoriteIdentifier {
             let _ = segue.destination as! FavoritesViewController
             locationManager.stopUpdatingLocation()
-            
+        }
+    }
+    
+    func hideShowSortMenu(){
+        if !self.sortMenuIsShow {
+            self.viewMenu.frame = CGRect(x: 0, y: 0, width: self.viewMenu.frame.width, height: self.viewMenu.frame.height)
+        } else {
+            self.viewMenu.frame = CGRect(x: 0, y: -128, width: self.viewMenu.frame.width, height: self.viewMenu.frame.height)
         }
     }
     
     @IBAction func showFavorites(_ sender: Any) {
-        
-        //let favoriteVC = FavoritesViewController()
-        //self.present(favoriteVC, animated: true, completion: nil)
-        
         performSegue(withIdentifier: favoriteIdentifier, sender: nil)
-        
     }
     
     
+    @IBAction func sortMenuClick(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveLinear], animations: {
+            self.hideShowSortMenu()
+        },  completion: {(_ completed: Bool) -> Void in
+            self.sortMenuIsShow = !self.sortMenuIsShow
+        })
+    }
 }
 
 // MARK: - SearchBar Delegate

@@ -11,7 +11,6 @@ import Foundation
 struct SuggestionCellViewModel {
     let suggestion: Suggestion
     
-    
     init(suggestion: Suggestion){
         self.suggestion = suggestion
     }

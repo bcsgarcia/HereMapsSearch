@@ -19,7 +19,6 @@ class FavoritesViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         fetchFavorites()
         setupMap()
     }
@@ -45,11 +44,9 @@ class FavoritesViewController: BaseViewController {
         }
     }
     
-    
     @IBAction func closeClick(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension FavoritesViewController: NSFetchedResultsControllerDelegate {
@@ -61,7 +58,6 @@ extension FavoritesViewController: NSFetchedResultsControllerDelegate {
 extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -89,7 +85,5 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let favorite = fetchedResultController?.object(at: indexPath) else { return }
         Map.setPosition(for: .destination, with: Position(with: favorite))
-        //performSegue(withIdentifier: segueDetail, sender: cat)
     }
-    
 }

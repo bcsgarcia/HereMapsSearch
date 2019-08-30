@@ -50,13 +50,11 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
         setViewModelClosures()
         attemptFecthLocation()
         loadCoreDataFavorite()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         URLCache.shared.removeAllCachedResponses()
     }
-    
     
     func setViewModelClosures() {
         
@@ -70,9 +68,7 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
         
         viewModel.showAlertClosure = {
             if let error = self.viewModel.error {
-                
                 var msgError = "Error, please try again"
-                
                 switch error {
                 case .noResponse, .noData:
                     msgError = "No data found"
@@ -122,7 +118,6 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
         }
     }
     
-    
     func attemptFecthLocation() {
         viewModel.fetchData(suggestion.locationId ?? "")
     }
@@ -147,7 +142,6 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
             print(error)
         }
     }
-    
     
     @IBAction func addFavoriteClick(_ sender: Any) {
         
@@ -178,8 +172,5 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
             }
         }
         saveContext()
-        
     }
-    
-    
 }

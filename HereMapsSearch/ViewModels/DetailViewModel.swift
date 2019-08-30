@@ -74,8 +74,4 @@ class DetailViewModel: BaseViewModel {
             }
         }
     }
-    
-   
-    
-    
 }

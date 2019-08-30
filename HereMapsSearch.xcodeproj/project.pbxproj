@@ -12,7 +12,6 @@
 		5F5138052319422300DE333E /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5138042319422300DE333E /* FavoritesViewController.swift */; };
 		5F513807231945E800DE333E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F513806231945E800DE333E /* GradientView.swift */; };
 		5F513809231946E800DE333E /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F513808231946E800DE333E /* FavoriteTableViewCell.swift */; };
-		5F51380B231949A800DE333E /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51380A231949A800DE333E /* FavoritesViewModel.swift */; };
 		5F51380D23195AC800DE333E /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F51380C23195AC800DE333E /* UITableView.swift */; };
 		5FB4B67523180B6400E22D3B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB4B67423180B6400E22D3B /* BaseViewController.swift */; };
 		5FF9CD6823158DE000878DB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD6723158DE000878DB3 /* AppDelegate.swift */; };
@@ -60,7 +59,6 @@
 		5F5138042319422300DE333E /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		5F513806231945E800DE333E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		5F513808231946E800DE333E /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
-		5F51380A231949A800DE333E /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		5F51380C23195AC800DE333E /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		5FB4B67423180B6400E22D3B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5FF9CD6423158DE000878DB3 /* HereMapsSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HereMapsSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,7 +279,6 @@
 				92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */,
 				5FF9CDAB2316F93300878DB3 /* DetailViewModel.swift */,
 				92A5132F23174A670056F62C /* BaseViewModel.swift */,
-				5F51380A231949A800DE333E /* FavoritesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -485,7 +482,6 @@
 				5FF9CD6823158DE000878DB3 /* AppDelegate.swift in Sources */,
 				92A5132C23161C4B0056F62C /* SugestionsViewModel.swift in Sources */,
 				92A513362318B2D50056F62C /* ImageService.swift in Sources */,
-				5F51380B231949A800DE333E /* FavoritesViewModel.swift in Sources */,
 				92A5133023174A670056F62C /* BaseViewModel.swift in Sources */,
 				92A5132E2316285B0056F62C /* SugestionCellViewModel.swift in Sources */,
 				5F513807231945E800DE333E /* GradientView.swift in Sources */,
