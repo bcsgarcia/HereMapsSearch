@@ -24,13 +24,12 @@ enum UrlRouter: URLRequestConvertible {
     
     case getSuggestions(String,String)
     case getLocationDetail(String)
+    case getImage(String)
     
     func asURLRequest() throws -> URLRequest {
         var method: HTTPMethod {
             switch self {
-            case .getSuggestions:
-                return .get
-            case .getLocationDetail:
+            case .getSuggestions, .getLocationDetail, .getImage:
                 return .get
             }
         }
@@ -50,13 +49,14 @@ enum UrlRouter: URLRequestConvertible {
                 baseURLString = Config.sharedInstance.GEOCODER_DETAIL_URL
                 relativePath = "?app_id=\(Config.sharedInstance.APP_ID)&app_code=\(Config.sharedInstance.APP_CODE)&jsonattributes=1&gen=9&locationid=\(locationId)"
                 break
+            case .getImage(let coordinates):
+                baseURLString = Config.sharedInstance.IMAGE_URL
+                relativePath = "?app_id=\(Config.sharedInstance.APP_ID)&app_code=\(Config.sharedInstance.APP_CODE)&c=\(coordinates)&u=1k&h=300&w=420"
+                print(baseURLString + relativePath)
+                break
             }
             
-            //print(baseURLString + relativePath)
             url = URL(string: baseURLString + relativePath)!
-            
-            
-            
             return url
         }()
         

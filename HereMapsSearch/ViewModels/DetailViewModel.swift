@@ -18,11 +18,22 @@ class DetailViewModel: BaseViewModel {
         }
     }
     
-    let service : LocationDetailServiceProtocol
+    var didFinishFetchImage: (() -> ())?
+    
+    var locationImage: UIImage? {
+        didSet {
+            self.isLoading = false
+            self.didFinishFetchImage?()
+        }
+    }
+    
+    let locationService : LocationDetailServiceProtocol
+    let imageService : ImageServiceProtocol
     
     //Dependency Injection
-    init(service: LocationDetailServiceProtocol = LocationDetailService()) {
-        self.service = service
+    init(locationService: LocationDetailServiceProtocol = LocationDetailService(), imageService: ImageServiceProtocol = ImageService()) {
+        self.locationService = locationService
+        self.imageService = imageService
     }
     
     func fetchData(_ locationId: String) {
@@ -33,7 +44,7 @@ class DetailViewModel: BaseViewModel {
             return
         }
         
-        service.fetchLocation(locationId: locationId) { (location, error) in
+        locationService.fetchLocation(locationId: locationId) { (location, error) in
             
             if let error = error {
                 self.error = error
@@ -47,7 +58,21 @@ class DetailViewModel: BaseViewModel {
             
             self.location = location
         }
+    }
+    
+    func fetchImage(_ coordinates: String) {
+        self.isLoading = true
         
+        if !CheckInternet.Connection() {
+            self.error = .noInternetConnection
+            return
+        }
+        
+        imageService.fetchImageData(coordinates: coordinates) { (image) in
+            if let image = image {
+                self.locationImage = image
+            }
+        }
     }
     
    

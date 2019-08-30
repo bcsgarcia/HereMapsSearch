@@ -16,11 +16,9 @@
 		5FF9CD7223158DE200878DB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF9CD7123158DE200878DB3 /* Assets.xcassets */; };
 		5FF9CD7523158DE200878DB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF9CD7323158DE200878DB3 /* LaunchScreen.storyboard */; };
 		5FF9CD8023158DE200878DB3 /* HereMapsSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD7F23158DE200878DB3 /* HereMapsSearchTests.swift */; };
-		5FF9CD8C23159F4600878DB3 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD8B23159F4600878DB3 /* UIView+Animation.swift */; };
 		5FF9CD8F2315A63400878DB3 /* Sugestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD8E2315A63400878DB3 /* Sugestion.swift */; };
 		5FF9CD912315A6E500878DB3 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD902315A6E500878DB3 /* Address.swift */; };
 		5FF9CD942315B63200878DB3 /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD932315B63200878DB3 /* CheckInternet.swift */; };
-		5FF9CDA02316C77100878DB3 /* UITableView+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CD9F2316C77100878DB3 /* UITableView+Empty.swift */; };
 		5FF9CDA22316DDF200878DB3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CDA12316DDF200878DB3 /* DetailViewController.swift */; };
 		5FF9CDA42316E8BD00878DB3 /* LocationDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CDA32316E8BC00878DB3 /* LocationDetailService.swift */; };
 		5FF9CDA62316F38C00878DB3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF9CDA52316F38C00878DB3 /* Location.swift */; };
@@ -29,12 +27,13 @@
 		92A5131C2315E4330056F62C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5131B2315E4330056F62C /* Enums.swift */; };
 		92A5131F2315E5650056F62C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5131E2315E5650056F62C /* Config.swift */; };
 		92A513212315E81C0056F62C /* SugestionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A513202315E81C0056F62C /* SugestionsService.swift */; };
-		92A513262316193C0056F62C /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A513252316193C0056F62C /* LocationsTableViewController.swift */; };
 		92A51329231619860056F62C /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A51328231619860056F62C /* LocationTableViewCell.swift */; };
 		92A5132C23161C4B0056F62C /* SugestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */; };
 		92A5132E2316285B0056F62C /* SugestionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */; };
 		92A5133023174A670056F62C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132F23174A670056F62C /* BaseViewModel.swift */; };
 		92A513322318A1EB0056F62C /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A513312318A1EB0056F62C /* UIView+CornerRadius.swift */; };
+		92A513342318AE530056F62C /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A513332318AE530056F62C /* UIViewController+CoreData.swift */; };
+		92A513362318B2D50056F62C /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A513352318B2D50056F62C /* ImageService.swift */; };
 		A8067A0FCC3AADDA1D0D7E86 /* Pods_HereMapsSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9A4DFCDECDF5A4B77BB862 /* Pods_HereMapsSearch.framework */; };
 		BE20BA74ED1FD9ECB54AAD61 /* Pods_HereMapsSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88536FEF8CC36CE9CB5E43D2 /* Pods_HereMapsSearchTests.framework */; };
 /* End PBXBuildFile section */
@@ -68,26 +67,25 @@
 		5FF9CD7B23158DE200878DB3 /* HereMapsSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HereMapsSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF9CD7F23158DE200878DB3 /* HereMapsSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HereMapsSearchTests.swift; sourceTree = "<group>"; };
 		5FF9CD8123158DE200878DB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5FF9CD8B23159F4600878DB3 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		5FF9CD8E2315A63400878DB3 /* Sugestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sugestion.swift; sourceTree = "<group>"; };
 		5FF9CD902315A6E500878DB3 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		5FF9CD932315B63200878DB3 /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
-		5FF9CD9F2316C77100878DB3 /* UITableView+Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Empty.swift"; sourceTree = "<group>"; };
 		5FF9CDA12316DDF200878DB3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5FF9CDA32316E8BC00878DB3 /* LocationDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailService.swift; sourceTree = "<group>"; };
 		5FF9CDA52316F38C00878DB3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5FF9CDA72316F48E00878DB3 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		5FF9CDAB2316F93300878DB3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		88536FEF8CC36CE9CB5E43D2 /* Pods_HereMapsSearchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HereMapsSearchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92A5131B2315E4330056F62C /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		92A5131B2315E4330056F62C /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Enums.swift; path = ../Models/Enums.swift; sourceTree = "<group>"; };
 		92A5131E2315E5650056F62C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		92A513202315E81C0056F62C /* SugestionsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionsService.swift; sourceTree = "<group>"; };
-		92A513252316193C0056F62C /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		92A51328231619860056F62C /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionsViewModel.swift; sourceTree = "<group>"; };
 		92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionCellViewModel.swift; sourceTree = "<group>"; };
 		92A5132F23174A670056F62C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		92A513312318A1EB0056F62C /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
+		92A513332318AE530056F62C /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
+		92A513352318B2D50056F62C /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,10 +165,7 @@
 				5FF9CD922315B61A00878DB3 /* Services */,
 				5FF9CD8D2315A62400878DB3 /* Models */,
 				5FF9CD8A23159F2E00878DB3 /* Extensions */,
-				5FF9CD6723158DE000878DB3 /* AppDelegate.swift */,
 				5FF9CD7123158DE200878DB3 /* Assets.xcassets */,
-				5FF9CD7623158DE200878DB3 /* Info.plist */,
-				5FF9CD6E23158DE000878DB3 /* HereMapsSearch.xcdatamodeld */,
 			);
 			path = HereMapsSearch;
 			sourceTree = "<group>";
@@ -187,9 +182,8 @@
 		5FF9CD8A23159F2E00878DB3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5FF9CD8B23159F4600878DB3 /* UIView+Animation.swift */,
-				5FF9CD9F2316C77100878DB3 /* UITableView+Empty.swift */,
 				92A513312318A1EB0056F62C /* UIView+CornerRadius.swift */,
+				92A513332318AE530056F62C /* UIViewController+CoreData.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,7 +193,6 @@
 			children = (
 				5FF9CD8E2315A63400878DB3 /* Sugestion.swift */,
 				5FF9CD902315A6E500878DB3 /* Address.swift */,
-				92A5131B2315E4330056F62C /* Enums.swift */,
 				5FF9CDA52316F38C00878DB3 /* Location.swift */,
 				5FF9CDA72316F48E00878DB3 /* Position.swift */,
 			);
@@ -209,9 +202,11 @@
 		5FF9CD922315B61A00878DB3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				92A5131B2315E4330056F62C /* Enums.swift */,
 				5FF9CD932315B63200878DB3 /* CheckInternet.swift */,
 				92A513202315E81C0056F62C /* SugestionsService.swift */,
 				5FF9CDA32316E8BC00878DB3 /* LocationDetailService.swift */,
+				92A513352318B2D50056F62C /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -219,7 +214,10 @@
 		92A5131D2315E54F0056F62C /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				5FF9CD6723158DE000878DB3 /* AppDelegate.swift */,
 				92A5131E2315E5650056F62C /* Config.swift */,
+				5FF9CD6E23158DE000878DB3 /* HereMapsSearch.xcdatamodeld */,
+				5FF9CD7623158DE200878DB3 /* Info.plist */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -247,7 +245,6 @@
 		92A51324231619030056F62C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				92A513252316193C0056F62C /* LocationsTableViewController.swift */,
 				5FF9CD6923158DE000878DB3 /* MainViewController.swift */,
 				5FF9CDA12316DDF200878DB3 /* DetailViewController.swift */,
 				5FB4B67423180B6400E22D3B /* BaseViewController.swift */,
@@ -442,17 +439,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92A513262316193C0056F62C /* LocationsTableViewController.swift in Sources */,
-				5FF9CDA02316C77100878DB3 /* UITableView+Empty.swift in Sources */,
 				5FF9CD942315B63200878DB3 /* CheckInternet.swift in Sources */,
 				5FF9CDAC2316F93300878DB3 /* DetailViewModel.swift in Sources */,
 				5FF9CD912315A6E500878DB3 /* Address.swift in Sources */,
 				5FF9CDA62316F38C00878DB3 /* Location.swift in Sources */,
 				92A5131F2315E5650056F62C /* Config.swift in Sources */,
 				5FF9CD6A23158DE000878DB3 /* MainViewController.swift in Sources */,
-				5FF9CD8C23159F4600878DB3 /* UIView+Animation.swift in Sources */,
 				92A513322318A1EB0056F62C /* UIView+CornerRadius.swift in Sources */,
 				5F513801231848B700DE333E /* Map.swift in Sources */,
+				92A513342318AE530056F62C /* UIViewController+CoreData.swift in Sources */,
 				5FF9CDA22316DDF200878DB3 /* DetailViewController.swift in Sources */,
 				5FF9CDA42316E8BD00878DB3 /* LocationDetailService.swift in Sources */,
 				92A51329231619860056F62C /* LocationTableViewCell.swift in Sources */,
@@ -462,6 +457,7 @@
 				92A5131C2315E4330056F62C /* Enums.swift in Sources */,
 				5FF9CD6823158DE000878DB3 /* AppDelegate.swift in Sources */,
 				92A5132C23161C4B0056F62C /* SugestionsViewModel.swift in Sources */,
+				92A513362318B2D50056F62C /* ImageService.swift in Sources */,
 				92A5133023174A670056F62C /* BaseViewModel.swift in Sources */,
 				92A5132E2316285B0056F62C /* SugestionCellViewModel.swift in Sources */,
 				5FF9CDA82316F48E00878DB3 /* Position.swift in Sources */,

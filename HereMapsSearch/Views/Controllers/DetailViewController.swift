@@ -8,6 +8,7 @@
 
 import UIKit
 import NMAKit
+import CoreData
 
 class DetailViewController: BaseViewController, CLLocationManagerDelegate {
 
@@ -23,17 +24,22 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet weak var lblLatitude: UILabel!
     @IBOutlet weak var lblLongitude: UILabel!
     @IBOutlet weak var lblDistance: UILabel!
+    @IBOutlet weak var btnFavorite: UIBarButtonItem!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var infoContainer: UIView!
-    //var mapView: NMAMapView!
     
+    
+    @IBOutlet weak var imgTeste: UIImageView!
+    
+    var isFavorite = false
+    var locationImage: UIImage? = nil
+    var favorite: Favorite? = nil
     var suggestion = Suggestion()
     var viewModel = DetailViewModel()
     
     let locationManager = CLLocationManager()
     var currentCoordinate = Position()
-    //var mapCircle : NMAMapCircle? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +60,7 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
         
         setViewModelClosures()
         attemptFecthLocation()
-        
+        loadCoreDataFavorite()
         
     }
     
@@ -116,6 +122,7 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
                 
                 Map.setPosition(for: .destination, with: self.currentCoordinate)
                 
+                self.viewModel.fetchImage(self.currentCoordinate.toString())
             }
         }
     }
@@ -125,14 +132,59 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
         viewModel.fetchData(suggestion.locationId ?? "")
     }
     
-    func applicationDidReceiveMemoryWarning(application: UIApplication) {
-        print("AQUI - DetailViewController - applicationDidReceiveMemoryWarning")
-        URLCache.shared.removeAllCachedResponses()
+    func loadCoreDataFavorite(){
+        
+        guard let locationId = suggestion.locationId else {
+            return
+        }
+        
+        let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        let predicate = NSPredicate(format: "locationId = %@", locationId)
+        fetchRequest.predicate = predicate
+        do {
+            let favorites = try context.fetch(fetchRequest)
+            if  favorites.count != 0 {
+                favorite = favorites[0]
+                isFavorite = true
+                btnFavorite.title = "Remove Favorite"
+            }
+        } catch {
+            print(error)
+        }
     }
     
     
-    @IBAction func backClick(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func addFavoriteClick(_ sender: Any) {
+        
+        guard let location = viewModel.location else {
+            return
+        }
+        
+        isFavorite = !isFavorite
+        
+        if isFavorite {
+            if favorite == nil {
+                favorite = Favorite(context: context)
+            }
+            
+            if let _ = favorite {
+                favorite?.locationId = location.locationId
+                favorite?.image = self.viewModel.locationImage?.pngData()
+                favorite?.label = location.address?.label
+                favorite?.latitude = location.displayPosition?.latitude ?? 0.0
+                favorite?.longitude = location.displayPosition?.longitude ?? 0.0
+                btnFavorite.title = "Remove Favorite"
+            }
+        } else {
+            if let _favorite = favorite {
+                btnFavorite.title = "Add Favorite"
+                context.delete(_favorite)
+                favorite = nil
+            }
+        }
+        saveContext()
+        
     }
+    
     
 }

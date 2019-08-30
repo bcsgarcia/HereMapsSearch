@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="823.1884057971015" y="-18.080357142857142"/>
+            <point key="canvasLocation" x="935" y="-18"/>
         </scene>
         <!--Detail-->
         <scene sceneID="pvg-Vc-3SN">
@@ -363,18 +363,18 @@
                                                 <exclude reference="QQ4-F8-iTZ"/>
                                                 <exclude reference="RmV-pH-y9D"/>
                                                 <exclude reference="lS5-8p-Iga"/>
-                                                <exclude reference="HA2-Fk-s9a"/>
-                                                <exclude reference="Lky-ON-E0o"/>
-                                                <exclude reference="OxN-4J-fJ9"/>
-                                                <exclude reference="Sjb-Xb-VdE"/>
-                                                <exclude reference="ha9-Ih-Tiy"/>
-                                                <exclude reference="q3P-Z7-nDw"/>
                                                 <exclude reference="9YD-VI-ySX"/>
                                                 <exclude reference="BMt-uB-PCE"/>
                                                 <exclude reference="OHM-4X-zRc"/>
                                                 <exclude reference="Q3s-MY-QhY"/>
                                                 <exclude reference="jXQ-SM-aC0"/>
                                                 <exclude reference="nUV-cA-t88"/>
+                                                <exclude reference="HA2-Fk-s9a"/>
+                                                <exclude reference="Lky-ON-E0o"/>
+                                                <exclude reference="OxN-4J-fJ9"/>
+                                                <exclude reference="Sjb-Xb-VdE"/>
+                                                <exclude reference="ha9-Ih-Tiy"/>
+                                                <exclude reference="q3P-Z7-nDw"/>
                                                 <exclude reference="84u-S4-3hX"/>
                                                 <exclude reference="VuP-NR-ymG"/>
                                                 <exclude reference="aDR-Km-WhD"/>
@@ -423,12 +423,12 @@
                                                 <include reference="Ged-WS-fiS"/>
                                                 <include reference="QQ4-F8-iTZ"/>
                                                 <include reference="RmV-pH-y9D"/>
-                                                <include reference="Lky-ON-E0o"/>
-                                                <include reference="OxN-4J-fJ9"/>
-                                                <include reference="ha9-Ih-Tiy"/>
                                                 <include reference="9YD-VI-ySX"/>
                                                 <include reference="BMt-uB-PCE"/>
                                                 <include reference="Q3s-MY-QhY"/>
+                                                <include reference="Lky-ON-E0o"/>
+                                                <include reference="OxN-4J-fJ9"/>
+                                                <include reference="ha9-Ih-Tiy"/>
                                                 <include reference="VuP-NR-ymG"/>
                                                 <include reference="aDR-Km-WhD"/>
                                                 <include reference="yex-WW-nRR"/>
@@ -470,12 +470,12 @@
                                                 <include reference="Ch4-Wx-hgQ"/>
                                                 <include reference="EJa-qF-DFh"/>
                                                 <include reference="lS5-8p-Iga"/>
-                                                <include reference="HA2-Fk-s9a"/>
-                                                <include reference="Sjb-Xb-VdE"/>
-                                                <include reference="q3P-Z7-nDw"/>
                                                 <include reference="OHM-4X-zRc"/>
                                                 <include reference="jXQ-SM-aC0"/>
                                                 <include reference="nUV-cA-t88"/>
+                                                <include reference="HA2-Fk-s9a"/>
+                                                <include reference="Sjb-Xb-VdE"/>
+                                                <include reference="q3P-Z7-nDw"/>
                                                 <include reference="84u-S4-3hX"/>
                                                 <include reference="mYN-Rw-7BS"/>
                                                 <include reference="rOn-U4-Yrt"/>
@@ -528,7 +528,7 @@
                                 </variation>
                             </scrollView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_unselected" translatesAutoresizingMaskIntoConstraints="NO" id="eNO-uW-Wpm">
-                                <rect key="frame" x="162" y="342" width="90" height="90"/>
+                                <rect key="frame" x="416" y="142.5" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="Rvi-Ap-uY9">
                                         <variation key="heightClass=regular-widthClass=compact" constant="90"/>
@@ -568,7 +568,6 @@
                         <viewLayoutGuide key="safeArea" id="bSS-o4-oUk"/>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="BBI-Pa-gu8"/>
                                 <exclude reference="5Yv-L0-PlO"/>
                                 <exclude reference="Iiv-7m-uba"/>
                                 <exclude reference="PIQ-ks-fOI"/>
@@ -578,6 +577,7 @@
                                 <exclude reference="Z2f-yz-cz7"/>
                                 <exclude reference="fou-xO-MnJ"/>
                                 <exclude reference="ztL-xv-d6F"/>
+                                <exclude reference="BBI-Pa-gu8"/>
                                 <exclude reference="s5t-jd-pgj"/>
                                 <exclude reference="wwM-31-vSx"/>
                                 <exclude reference="BDV-Pr-hjm"/>
@@ -592,6 +592,9 @@
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="subviews">
+                                <exclude reference="eNO-uW-Wpm"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="5Yv-L0-PlO"/>
                                 <include reference="Iiv-7m-uba"/>
@@ -606,12 +609,15 @@
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="eNO-uW-Wpm"/>
+                            </mask>
                             <mask key="constraints">
-                                <include reference="BBI-Pa-gu8"/>
                                 <include reference="PIQ-ks-fOI"/>
                                 <include reference="WKG-y7-gvD"/>
                                 <include reference="Z2f-yz-cz7"/>
                                 <include reference="ztL-xv-d6F"/>
+                                <include reference="BBI-Pa-gu8"/>
                                 <include reference="wwM-31-vSx"/>
                                 <include reference="BDV-Pr-hjm"/>
                                 <include reference="GBk-he-1Gm"/>
@@ -622,8 +628,15 @@
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Detail" id="aPH-s7-uCw"/>
+                    <navigationItem key="navigationItem" title="Detail" id="aPH-s7-uCw">
+                        <barButtonItem key="rightBarButtonItem" title="Add Favorite" id="moy-aI-sqU">
+                            <connections>
+                                <action selector="addFavoriteClick:" destination="8x7-H5-HUJ" id="fGA-xg-dry"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="btnFavorite" destination="moy-aI-sqU" id="9xb-2m-N4U"/>
                         <outlet property="infoContainer" destination="gmV-ZV-zsD" id="KUT-W0-Yge"/>
                         <outlet property="lblDistance" destination="vsH-ZZ-y4I" id="s2q-2a-HVq"/>
                         <outlet property="lblDistrict" destination="czK-SG-8jr" id="SOA-uO-JZ3"/>
@@ -638,61 +651,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5T-zR-gJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="-19.419642857142858"/>
-        </scene>
-        <!--Locations Table View Controller-->
-        <scene sceneID="yAU-de-xY0">
-            <objects>
-                <tableViewController id="1Xx-Yq-p7m" customClass="LocationsTableViewController" customModule="HereMapsSearch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="o51-wD-bbp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableFooterView" contentMode="redraw" id="Qu2-bN-uXC">
-                            <rect key="frame" x="0.0" y="167" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" rowHeight="139" id="9o1-uo-5Wi" customClass="LocationTableViewCell" customModule="HereMapsSearch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="139"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9o1-uo-5Wi" id="gXG-8I-4Wt">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="138.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zD-vX-GWE">
-                                            <rect key="frame" x="28" y="19" width="374" height="101"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="4zD-vX-GWE" firstAttribute="top" secondItem="gXG-8I-4Wt" secondAttribute="topMargin" constant="8" id="5dZ-Q8-I49"/>
-                                        <constraint firstItem="4zD-vX-GWE" firstAttribute="leading" secondItem="gXG-8I-4Wt" secondAttribute="leadingMargin" constant="8" id="8Gx-zg-rN9"/>
-                                        <constraint firstItem="4zD-vX-GWE" firstAttribute="trailing" secondItem="gXG-8I-4Wt" secondAttribute="trailingMargin" constant="8" id="akl-Mt-8my"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="4zD-vX-GWE" secondAttribute="bottom" constant="8" id="sKM-eg-B0X"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="txtLabel" destination="4zD-vX-GWE" id="cRh-LM-Clo"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1Xx-Yq-p7m" id="Bfc-a5-4LN"/>
-                            <outlet property="delegate" destination="1Xx-Yq-p7m" id="iu1-1n-aKs"/>
-                        </connections>
-                    </tableView>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <connections>
-                        <outlet property="searchBar" destination="Qu2-bN-uXC" id="aIa-vg-Hbi"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7HN-uh-ylJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-233" y="-1447"/>
+            <point key="canvasLocation" x="1975" y="-18"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Iou-fe-rlD">

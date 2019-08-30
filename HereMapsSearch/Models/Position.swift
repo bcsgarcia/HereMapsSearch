@@ -14,7 +14,11 @@ class Position: Codable {
     var longitude: Double? = 0.0
     
     
-    func getProxString() -> String{
+    func getProxString() -> String {
         return "\(self.latitude ?? 0.0),\(self.longitude ?? 0.0),500"
+    }
+    
+    func toString() -> String {
+        return "\(self.latitude ?? 0.0),\(self.longitude ?? 0.0)"
     }
 }

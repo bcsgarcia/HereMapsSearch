@@ -17,6 +17,7 @@ class Config {
     let APP_CODE = "2s6K8A1mASnWqJ6OXVmEEA"
     let AUTO_COMPLETE_GEOCODER_URL = "https://autocomplete.geocoder.api.here.com/6.2/suggest.json"
     let GEOCODER_DETAIL_URL = "https://geocoder.api.here.com/6.2/geocode.json"
+    let IMAGE_URL = "https://image.maps.api.here.com/mia/1.6/mapview"
     
     
     
