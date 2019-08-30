@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,6 +34,7 @@
 		92A5132C23161C4B0056F62C /* SugestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */; };
 		92A5132E2316285B0056F62C /* SugestionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */; };
 		92A5133023174A670056F62C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5132F23174A670056F62C /* BaseViewModel.swift */; };
+		92A513322318A1EB0056F62C /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A513312318A1EB0056F62C /* UIView+CornerRadius.swift */; };
 		A8067A0FCC3AADDA1D0D7E86 /* Pods_HereMapsSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9A4DFCDECDF5A4B77BB862 /* Pods_HereMapsSearch.framework */; };
 		BE20BA74ED1FD9ECB54AAD61 /* Pods_HereMapsSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88536FEF8CC36CE9CB5E43D2 /* Pods_HereMapsSearchTests.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		92A5132B23161C4B0056F62C /* SugestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionsViewModel.swift; sourceTree = "<group>"; };
 		92A5132D2316285B0056F62C /* SugestionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SugestionCellViewModel.swift; sourceTree = "<group>"; };
 		92A5132F23174A670056F62C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		92A513312318A1EB0056F62C /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			children = (
 				5FF9CD8B23159F4600878DB3 /* UIView+Animation.swift */,
 				5FF9CD9F2316C77100878DB3 /* UITableView+Empty.swift */,
+				92A513312318A1EB0056F62C /* UIView+CornerRadius.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -377,18 +380,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${PODS_ROOT}/HEREMapsStarter/framework/NMAKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMAKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HereMapsSearch/Pods-HereMapsSearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -455,6 +451,7 @@
 				92A5131F2315E5650056F62C /* Config.swift in Sources */,
 				5FF9CD6A23158DE000878DB3 /* MainViewController.swift in Sources */,
 				5FF9CD8C23159F4600878DB3 /* UIView+Animation.swift in Sources */,
+				92A513322318A1EB0056F62C /* UIView+CornerRadius.swift in Sources */,
 				5F513801231848B700DE333E /* Map.swift in Sources */,
 				5FF9CDA22316DDF200878DB3 /* DetailViewController.swift in Sources */,
 				5FF9CDA42316E8BD00878DB3 /* LocationDetailService.swift in Sources */,

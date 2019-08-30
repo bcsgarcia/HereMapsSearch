@@ -12,7 +12,9 @@ import NMAKit
 class MainViewController: BaseViewController, CLLocationManagerDelegate {
 
     // MARK: - IBOutlet
-    @IBOutlet weak var mapView: NMAMapView!
+    //@IBOutlet weak var mapView: NMAMapView!
+    
+    @IBOutlet weak var mapContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -45,14 +47,24 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         
+       
+        
         setUpSearchBar()
         setViewModelClosures()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setMapPosition()
-        
+        //setMapPosition()
+        setupMap()
+        Map.setPosition(for: .user, with: currentCoordinate)
+        locationManager.startUpdatingLocation()
+    }
+    
+    func setupMap() {
+        Map.mapView.frame = mapContainer.bounds
+        Map.mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        mapContainer.addSubview(Map.mapView)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -60,43 +72,23 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
         currentCoordinate.latitude = locValue.latitude
         currentCoordinate.longitude = locValue.longitude
     
-        setMapPosition()
-        locationManager.stopUpdatingLocation()
+        //setMapPosition()
+        //locationManager.stopUpdatingLocation()
         
-        /*
+        
         let currTime = Int64(NSDate().timeIntervalSince1970 * 1000)
         if Int64(currTime - lastPositionUpdate) > MINUTE/2 {
             //URLCache.shared.removeAllCachedResponses()
-            setMapPosition()
+            //setMapPosition()
+            Map.setPosition(for: .user, with: currentCoordinate)
         }
-         */
+        
     }
     
     private func setUpSearchBar() {
         searchBar.delegate = self
     }
-  
-    func setMapPosition() {
-        mapView.useHighResolutionMap = true
-        mapView.zoomLevel = 13.2
-        
-        let coordinates = NMAGeoCoordinates(latitude: currentCoordinate.latitude ?? 0.0, longitude: currentCoordinate.longitude ?? 0.0)
-        mapView.set(geoCenter: coordinates, animation: .linear)
-        mapView.copyrightLogoPosition = NMALayoutPosition.bottomCenter
-        addMapCircle(coordinates)
-    }
-  
-    func addMapCircle(_ coordinates: NMAGeoCoordinates) {
-        if mapCircle != nil {
-            mapView.remove(mapCircle!)
-        }
-
-        mapCircle = NMAMapCircle(coordinates: coordinates, radius: 90)
-        mapCircle!.fillColor = #colorLiteral(red: 0, green: 0.495313704, blue: 1, alpha: 1)
-        mapCircle!.lineWidth = 2
-        mapCircle!.lineColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        mapView.add(mapCircle!)
-    }
+    
     
     func setViewModelClosures() {
         viewModel.updateLoadingStatus = {
@@ -127,6 +119,13 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
             self.cellViewModels.sort(by: { $0.suggestion.distance ?? 0 < $1.suggestion.distance ?? 0 })
             
             self.tableView.reloadData()
+            
+            if self.cellViewModels.count > 0 {
+                self.tableView.isHidden = false
+            } else {
+                self.tableView.isHidden = true
+            }
+            
         }
     }
     
@@ -138,16 +137,12 @@ class MainViewController: BaseViewController, CLLocationManagerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == identifier {
             let viewDestiny = segue.destination as! DetailViewController
+            locationManager.stopUpdatingLocation()
             if let indexPath = sender as? IndexPath {
                 viewDestiny.suggestion = cellViewModels[indexPath.row].suggestion
             }
         }
     }
-    
-    
-    
-    
-    
 }
 
 // MARK: - SearchBar Delegate

@@ -17,12 +17,15 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet weak var viewTest: UIView!
     
     @IBOutlet weak var lblStreet: UILabel!
+    @IBOutlet weak var lblDistrict: UILabel!
     @IBOutlet weak var lblState: UILabel!
     @IBOutlet weak var lblPostalCode: UILabel!
     @IBOutlet weak var lblLatitude: UILabel!
     @IBOutlet weak var lblLongitude: UILabel!
     @IBOutlet weak var lblDistance: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var infoContainer: UIView!
     //var mapView: NMAMapView!
     
     var suggestion = Suggestion()
@@ -35,7 +38,9 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //mapView = NMAMapView()
+        //infoContainer.roundCorners(corners: [.topLeft, .topRight], radius: 20.0)
+        //scrollView.roundCorners(corners: [.topLeft, .topRight], radius: 20.0)
+        
         Map.mapView.frame = viewTest.bounds
         Map.mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         viewTest.addSubview(Map.mapView)
@@ -98,6 +103,7 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
                     self.lblStreet.text = address.street
                     self.lblState.text = address.state
                     self.lblPostalCode.text = address.postalCode
+                    self.lblDistrict.text = address.district
                 }
                 
                 if let coordinates = location.displayPosition {
@@ -108,7 +114,7 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
                 
                 self.lblDistance.text = "\(self.suggestion.distance ?? 0)"
                 
-                Map.setMapPosition(with: self.currentCoordinate)
+                Map.setPosition(for: .destination, with: self.currentCoordinate)
                 
             }
         }
@@ -118,29 +124,6 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
     func attemptFecthLocation() {
         viewModel.fetchData(suggestion.locationId ?? "")
     }
-    
-    /*
-    func setMapPosition() {
-        Config.sharedInstance.mapView.useHighResolutionMap = true
-        Config.sharedInstance.mapView.zoomLevel = 14.2
-        
-        let coordinates = NMAGeoCoordinates(latitude: currentCoordinate.latitude ?? 0.0, longitude: currentCoordinate.longitude ?? 0.0)
-        Config.sharedInstance.mapView.set(geoCenter: coordinates, animation: .linear)
-        Config.sharedInstance.mapView.copyrightLogoPosition = NMALayoutPosition.bottomCenter
-        addMapCircle(coordinates)
-    }
-    
-    func addMapCircle(_ coordinates: NMAGeoCoordinates) {
-        if mapCircle != nil {
-            Config.sharedInstance.mapView.remove(mapCircle!)
-        }
-        
-        mapCircle = NMAMapCircle(coordinates: coordinates, radius: 50)
-        mapCircle!.fillColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
-        mapCircle!.lineWidth = 2
-        mapCircle!.lineColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        Config.sharedInstance.mapView.add(mapCircle!)
-    }*/
     
     func applicationDidReceiveMemoryWarning(application: UIApplication) {
         print("AQUI - DetailViewController - applicationDidReceiveMemoryWarning")
