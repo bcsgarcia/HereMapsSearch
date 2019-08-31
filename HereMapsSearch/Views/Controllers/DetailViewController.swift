@@ -10,8 +10,9 @@ import UIKit
 import NMAKit
 import CoreData
 
-class DetailViewController: BaseViewController, CLLocationManagerDelegate {
+class DetailViewController: BaseViewController {
 
+    // MARK: - IBOutlet
     @IBOutlet weak var mapContainer: UIView!
     @IBOutlet weak var lblStreet: UILabel!
     @IBOutlet weak var lblDistrict: UILabel!
@@ -22,48 +23,30 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet weak var lblDistance: UILabel!
     @IBOutlet weak var btnFavorite: UIBarButtonItem!
     
+    // MARK: - Porperties
     var isFavorite = false
     var locationImage: UIImage? = nil
     var favorite: Favorite? = nil
     var suggestion = Suggestion()
     let viewModel = DetailViewModel()
-    
-    let locationManager = CLLocationManager()
     var currentCoordinate = Position()
     
+    // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        btnFavorite.isEnabled = false
-        
-        Map.mapView.frame = mapContainer.bounds
-        Map.mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        mapContainer.addSubview(Map.mapView)
-        
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        }
-        
         setViewModelClosures()
-        attemptFecthLocation()
         loadCoreDataFavorite()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        URLCache.shared.removeAllCachedResponses()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupMap(with: mapContainer)
     }
     
     func setViewModelClosures() {
-        
+
         viewModel.updateLoadingStatus = {
-            if self.viewModel.isLoading {
-                self.activityIndicatorStart()
-            } else {
-                self.activityIndicatorStop()
-            }
+            let _ = self.viewModel.isLoading ? self.activityIndicatorStart() : self.activityIndicatorStop()
         }
         
         viewModel.showAlertClosure = {
@@ -84,38 +67,30 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
         }
         
         viewModel.didFinishFetch = {
-            DispatchQueue.main.async {
-                
-                guard let location = self.viewModel.location else {
-                    return
-                }
-                
-                if let address = location.address {
-                    self.lblStreet.text = address.street
-                    self.lblState.text = address.state
-                    self.lblPostalCode.text = address.postalCode
-                    self.lblDistrict.text = address.district
-                }
-                
-                if let coordinates = location.displayPosition {
-                    self.lblLatitude.text = "\(coordinates.latitude ?? 0.0)"
-                    self.lblLongitude.text = "\(coordinates.longitude ?? 0.0)"
-                    self.currentCoordinate = coordinates
-                }
-                
-                self.lblDistance.text = "\(self.suggestion.distance ?? 0)"
-                
-                Map.setPosition(for: .destination, with: self.currentCoordinate)
-                
-                self.viewModel.fetchImage(self.currentCoordinate.toString())
+            guard let location = self.viewModel.location else { return }
+            
+            if let address = location.address {
+                self.lblStreet.text = address.street
+                self.lblState.text = address.state
+                self.lblPostalCode.text = address.postalCode
+                self.lblDistrict.text = address.district
             }
+            
+            if let coordinates = location.displayPosition {
+                self.lblLatitude.text = "\(coordinates.latitude ?? 0.0)"
+                self.lblLongitude.text = "\(coordinates.longitude ?? 0.0)"
+                self.currentCoordinate = coordinates
+            }
+            
+            self.lblDistance.text = "\(self.suggestion.distance ?? 0)"
+            
+            Map.setPosition(for: .destination, with: self.currentCoordinate)
+            self.viewModel.fetchImage(self.currentCoordinate.toString())
         }
         
-        viewModel.didFinishFetchImage = {
-            DispatchQueue.main.async {
-                self.btnFavorite.isEnabled = true
-            }
-        }
+        viewModel.didFinishFetchImage = { self.btnFavorite.isEnabled = true }
+        
+        attemptFecthLocation()
     }
     
     func attemptFecthLocation() {
@@ -124,13 +99,10 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
     
     func loadCoreDataFavorite(){
         
-        guard let locationId = suggestion.locationId else {
-            return
-        }
+        guard let locationId = suggestion.locationId else { return }
         
         let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
-        let predicate = NSPredicate(format: "locationId = %@", locationId)
-        fetchRequest.predicate = predicate
+        fetchRequest.predicate = NSPredicate(format: "locationId = %@", locationId)
         do {
             let favorites = try context.fetch(fetchRequest)
             if  favorites.count != 0 {
@@ -143,14 +115,12 @@ class DetailViewController: BaseViewController, CLLocationManagerDelegate {
         }
     }
     
+    // MARK: - IBActions
     @IBAction func addFavoriteClick(_ sender: Any) {
         
-        guard let location = viewModel.location else {
-            return
-        }
-        
+        guard let location = viewModel.location else { return }
+
         isFavorite = !isFavorite
-        
         if isFavorite {
             if favorite == nil {
                 favorite = Favorite(context: context)

@@ -20,15 +20,7 @@ class FavoritesViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFavorites()
-        setupMap()
-    }
-    
-    func setupMap() {
-        tableView.layer.borderWidth = 1
-        tableView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        Map.mapView.frame = mapContainer.bounds
-        Map.mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        mapContainer.addSubview(Map.mapView)
+        setupMap(with: mapContainer)
     }
     
     func fetchFavorites() {

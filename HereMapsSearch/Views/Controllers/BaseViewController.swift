@@ -21,6 +21,14 @@ class BaseViewController: UIViewController {
         activityIndicator()
     }
     
+    func setupMap(with mapContainer: UIView) {
+        Map.mapView.frame = mapContainer.bounds
+        Map.mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        mapContainer.addSubview(Map.mapView)
+        mapContainer.layer.borderWidth = 1
+        mapContainer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
     func activityIndicatorStart() {
         indicator.isHidden = false
         indicator.startAnimating()

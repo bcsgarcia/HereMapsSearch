@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 class Position: Codable {
     
@@ -18,6 +19,11 @@ class Position: Codable {
     init(with favorite: Favorite) {
         self.latitude = favorite.latitude
         self.longitude = favorite.longitude
+    }
+    
+    func setCoordinates(with locValue:CLLocationCoordinate2D) {
+        self.latitude = locValue.latitude
+        self.longitude = locValue.longitude
     }
     
     func getProxString() -> String {
