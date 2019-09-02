@@ -13,6 +13,7 @@ class FavoritesViewController: BaseViewController {
 
     @IBOutlet weak var mapContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnClose: UIButton!
     
     let cellId = "favoriteCell"
     var fetchedResultController: NSFetchedResultsController<Favorite>? = nil
@@ -21,6 +22,7 @@ class FavoritesViewController: BaseViewController {
         super.viewDidLoad()
         fetchFavorites()
         setupMap(with: mapContainer)
+        btnClose.layer.cornerRadius = 5
     }
     
     func fetchFavorites() {

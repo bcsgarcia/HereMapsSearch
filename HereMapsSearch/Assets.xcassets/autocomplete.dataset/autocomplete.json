@@ -1,0 +1,84 @@
+{
+    "suggestions": [
+        {
+            "label": "Brasil, 01311-000, São Paulo, Avenida Paulista",
+            "language": "pt",
+            "countryCode": "BRA",
+            "locationId": "NT_31Ke13I92N.lMgghc7NEoB",
+            "address": {
+                "country": "Brasil",
+                "state": "São Paulo",
+                "city": "São Paulo",
+                "district": "Bela Vista",
+                "street": "Avenida Paulista",
+                "postalCode": "01311-000"
+            },
+            "distance": 10659,
+            "matchLevel": "street"
+        },
+        {
+            "label": "Brasil, 01310-100, São Paulo, Avenida Paulista",
+            "language": "pt",
+            "countryCode": "BRA",
+            "locationId": "NT_n2W71VfhBctvvsN5QYYdcD",
+            "address": {
+                "country": "Brasil",
+                "state": "São Paulo",
+                "city": "São Paulo",
+                "district": "Bela Vista",
+                "street": "Avenida Paulista",
+                "postalCode": "01310-100"
+            },
+            "distance": 11412,
+            "matchLevel": "street"
+        },
+        {
+            "label": "Brasil, 04001-000, São Paulo, Avenida Paulista",
+            "language": "pt",
+            "countryCode": "BRA",
+            "locationId": "NT_Eg2o5dBQF8o.Oh6ONYNQFA",
+            "address": {
+                "country": "Brasil",
+                "state": "São Paulo",
+                "city": "São Paulo",
+                "district": "Vila Mariana",
+                "street": "Avenida Paulista",
+                "postalCode": "04001-000"
+            },
+            "distance": 10930,
+            "matchLevel": "street"
+        },
+        {
+            "label": "Brasil, 01311-200, São Paulo, Avenida Paulista",
+            "language": "pt",
+            "countryCode": "BRA",
+            "locationId": "NT_zPW2S01lGM67hClQKrztpD",
+            "address": {
+                "country": "Brasil",
+                "state": "São Paulo",
+                "city": "São Paulo",
+                "district": "Jardim Paulista",
+                "street": "Avenida Paulista",
+                "postalCode": "01311-200"
+            },
+            "distance": 11682,
+            "matchLevel": "street"
+        },
+        {
+            "label": "Brasil, 01310-200, São Paulo, Avenida Paulista",
+            "language": "pt",
+            "countryCode": "BRA",
+            "locationId": "NT_.FzS3PImbaVU73svS30J.B",
+            "address": {
+                "country": "Brasil",
+                "state": "São Paulo",
+                "city": "São Paulo",
+                "district": "Bela Vista",
+                "street": "Avenida Paulista",
+                "postalCode": "01310-200"
+            },
+            "distance": 12179,
+            "matchLevel": "street"
+        }
+    ]
+}

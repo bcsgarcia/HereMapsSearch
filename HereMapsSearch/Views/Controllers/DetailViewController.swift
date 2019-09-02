@@ -128,11 +128,14 @@ class DetailViewController: BaseViewController {
             
             if let _ = favorite {
                 favorite?.locationId = location.locationId
-                favorite?.image = self.viewModel.locationImage?.pngData()
                 favorite?.label = location.address?.label
                 favorite?.latitude = location.displayPosition?.latitude ?? 0.0
                 favorite?.longitude = location.displayPosition?.longitude ?? 0.0
                 btnFavorite.title = "Remove Favorite"
+                
+                if let image = self.viewModel.locationImage {
+                    favorite?.image = image.pngData()
+                }
             }
         } else {
             if let _favorite = favorite {

@@ -71,6 +71,8 @@ class DetailViewModel: BaseViewModel {
         imageService.fetchImageData(coordinates: coordinates) { (image) in
             if let image = image {
                 self.locationImage = image
+            } else {
+                self.locationImage = nil
             }
         }
     }

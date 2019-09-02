@@ -1,0 +1,55 @@
+{
+    "response": {
+        "metaInfo": {
+            "timestamp": "2019-09-01T15:40:52.534+0000"
+        },
+        "view": [
+            {
+                "result": [
+                    {
+                        "relevance": 0.0,
+                        "matchLevel": "street",
+                        "location": {
+                            "locationId": "NT_31Ke13I92N.lMgghc7NEoB",
+                            "locationType": "address",
+                            "displayPosition": {
+                                "latitude": -23.56943,
+                                "longitude": -46.64661
+                            },
+                            "mapView": {
+                                "topLeft": {
+                                    "latitude": -23.56762,
+                                    "longitude": -46.64906
+                                },
+                                "bottomRight": {
+                                    "latitude": -23.57135,
+                                    "longitude": -46.64424
+                                }
+                            },
+                            "address": {
+                                "label": "Avenida Paulista, Bela Vista, São Paulo - SP, 01311-000, Brasil",
+                                "country": "BRA",
+                                "state": "SP",
+                                "city": "São Paulo",
+                                "district": "Bela Vista",
+                                "street": "Avenida Paulista",
+                                "postalCode": "01311-000",
+                                "additionalData": [
+                                    {
+                                        "value": "Brasil",
+                                        "key": "CountryName"
+                                    },
+                                    {
+                                        "value": "São Paulo",
+                                        "key": "StateName"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "viewId": 0
+            }
+        ]
+    }
+}

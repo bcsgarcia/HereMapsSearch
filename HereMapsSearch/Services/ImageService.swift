@@ -22,6 +22,7 @@ class ImageService : ImageServiceProtocol {
         let relativePath = "?app_id=\(Config.sharedInstance.APP_ID)&app_code=\(Config.sharedInstance.APP_CODE)&c=\(coordinates)&u=1k&h=300&w=420"
         
         Alamofire.request(baseURLString + relativePath).responseImage { response in
+            
             if let image = response.result.value {
                 completion(image)
             } else {
