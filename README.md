@@ -22,7 +22,7 @@ screen with the list of favorite locations
 list of locations
 
 
-Arquitetura utilizada: ModelView-View-Model (MVVM)
+Used Architecture: ModelView-View-Model (MVVM)
 
 
 3rd Party Libriry used:
