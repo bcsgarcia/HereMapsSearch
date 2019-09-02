@@ -2,6 +2,11 @@
 
 App that it be able to search locations around the user location, using HERE Maps.
 
+Must run '$ pod install' before run project.
+
+
+Story Description:
+
  - Story 1: When the user launches the application, he should land in
  a screen where is possible to search for locations around him;
 
