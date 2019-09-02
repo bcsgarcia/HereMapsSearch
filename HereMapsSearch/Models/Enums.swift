@@ -52,7 +52,6 @@ enum UrlRouter: URLRequestConvertible {
             case .getImage(let coordinates):
                 baseURLString = Config.sharedInstance.IMAGE_URL
                 relativePath = "?app_id=\(Config.sharedInstance.APP_ID)&app_code=\(Config.sharedInstance.APP_CODE)&c=\(coordinates)&u=1k&h=300&w=420"
-                print(baseURLString + relativePath)
                 break
             }
             

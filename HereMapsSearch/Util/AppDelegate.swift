@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
-        print("AQUI - MainViewController - applicationDidReceiveMemoryWarning")
         URLCache.shared.removeAllCachedResponses()
     }
 

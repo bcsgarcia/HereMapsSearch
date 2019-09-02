@@ -33,6 +33,7 @@ class SuggestionsService : SuggestionsServiceProtocol {
                     }
                 } catch let jsonErr {
                     print("Failed to decode:", jsonErr)
+                    completion(nil, .invalidJSON)
                 }
         }
     }

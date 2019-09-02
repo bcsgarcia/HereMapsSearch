@@ -8,7 +8,7 @@ target 'HereMapsSearch' do
   # Pods for HereMapsSearch
 
   pod 'Alamofire', '~> 4.8.1'
-   pod 'AlamofireImage', '~> 3.5'
+  pod 'AlamofireImage', '~> 3.5'
   pod 'HEREMapsStarter'
 
   target 'HereMapsSearchTests' do

@@ -29,7 +29,6 @@ class LocationDetailService : LocationDetailServiceProtocol {
                 }
                 
                 do {
-                    //print(response)
                     let locationResponse = try JSONDecoder().decode(LocationResponse.self, from: data)
                     
                         guard let responseView = locationResponse.response else {
@@ -61,6 +60,7 @@ class LocationDetailService : LocationDetailServiceProtocol {
                     
                 } catch let jsonErr {
                     print("Failed to decode:", jsonErr)
+                    completion(nil, .invalidJSON)
                 }
         }
     }
